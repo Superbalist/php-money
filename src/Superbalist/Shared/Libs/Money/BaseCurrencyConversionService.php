@@ -3,7 +3,10 @@
 abstract class BaseCurrencyConversionService implements CurrencyConversionServiceInterface {
 
 	/**
-	 * {@inheritdoc}
+	 * @param mixed $amount
+	 * @param Currency $from
+	 * @param Currency $to
+	 * @return string
 	 */
 	public function convert($amount, Currency $from, Currency $to)
 	{
@@ -13,7 +16,10 @@ abstract class BaseCurrencyConversionService implements CurrencyConversionServic
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @param Currency $from
+	 * @param Currency $to
+	 * @return string
+	 * @throws \RuntimeException
 	 */
 	public function getConversionMultiplier(Currency $from, Currency $to)
 	{

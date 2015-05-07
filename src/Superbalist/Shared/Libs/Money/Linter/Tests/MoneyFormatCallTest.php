@@ -3,7 +3,7 @@
 class MoneyFormatCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{

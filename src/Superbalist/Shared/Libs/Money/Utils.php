@@ -5,6 +5,7 @@ class Utils {
 	/**
 	 * @param mixed $value
 	 * @return string
+	 * @throws \InvalidArgumentException
 	 */
 	public static function toStringAmount($value)
 	{
@@ -91,6 +92,7 @@ class Utils {
 
 	/**
 	 * @return string
+	 * @throws \RuntimeException
 	 */
 	public static function min()
 	{
@@ -113,6 +115,7 @@ class Utils {
 
 	/**
 	 * @return string
+	 * @throws \RuntimeException
 	 */
 	public static function max()
 	{

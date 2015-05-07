@@ -3,7 +3,7 @@
 class IsIntegerFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{

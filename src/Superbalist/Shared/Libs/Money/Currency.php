@@ -23,7 +23,10 @@ class Currency {
 	protected $isLeftSign;
 
 	/**
+	 * @param string $code
+	 * @param string $sign
 	 * @param string $name
+	 * @param bool $isLeftSign
 	 */
 	public function __construct($code, $sign, $name, $isLeftSign = true)
 	{

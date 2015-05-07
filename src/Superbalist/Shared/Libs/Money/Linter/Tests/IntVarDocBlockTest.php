@@ -3,7 +3,7 @@
 class IntVarDocBlockTest extends PHPDOcBlockTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return array
 	 */
 	protected function getAnnotationCriteria()
 	{
@@ -14,7 +14,7 @@ class IntVarDocBlockTest extends PHPDOcBlockTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

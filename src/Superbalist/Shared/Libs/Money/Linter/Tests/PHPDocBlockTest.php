@@ -10,7 +10,8 @@ abstract class PHPDOcBlockTest extends BaseLinterTest {
 	abstract protected function getAnnotationCriteria();
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $source
+	 * @return array
 	 */
 	public function analyse($source)
 	{
@@ -23,7 +24,6 @@ abstract class PHPDOcBlockTest extends BaseLinterTest {
 					// find matching phpdoc annotations
 					$annotations = $this->getMatchingAnnotationsFromComment($token[1], $this->getAnnotationCriteria());
 					if (count($annotations) > 0) {
-						$annotation = array_shift($annotations);
 						// only need to create a new warning if one doesn't already exist for this line
 						if ( ! isset($warnings[$token[2]])) {
 							$warnings[$token[2]] = new LintWarning($token[2], $this->getLineFromSource($source, $token[2]), $this);

@@ -18,7 +18,7 @@ class SourceResult {
 	protected $timings = array();
 
 	/**
-	 * @param string $filename (optional)
+	 * @param string $filename
 	 */
 	public function __construct($filename = null)
 	{

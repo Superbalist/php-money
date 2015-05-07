@@ -6,7 +6,8 @@ use Superbalist\Shared\Libs\Money\Linter\LintWarning;
 class SprintfFormatFloatTest extends BaseLinterTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $source
+	 * @return array
 	 */
 	public function analyse($source)
 	{
@@ -151,7 +152,7 @@ class SprintfFormatFloatTest extends BaseLinterTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

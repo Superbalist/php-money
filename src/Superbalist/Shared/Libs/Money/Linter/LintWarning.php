@@ -20,7 +20,6 @@ class LintWarning {
 	protected $test;
 
 	/**
-	 * @param SourceResult $sourceResult
 	 * @param int $number
 	 * @param string $line
 	 * @param LinterTestInterface $test

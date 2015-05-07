@@ -10,7 +10,8 @@ abstract class FunctionCallTest extends BaseLinterTest {
 	abstract protected function getFunctionName();
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $source
+	 * @return array
 	 */
 	public function analyse($source)
 	{
@@ -31,7 +32,7 @@ abstract class FunctionCallTest extends BaseLinterTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

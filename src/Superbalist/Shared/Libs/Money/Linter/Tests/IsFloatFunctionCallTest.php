@@ -3,7 +3,7 @@
 class IsFloatFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{

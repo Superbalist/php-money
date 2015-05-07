@@ -10,7 +10,8 @@ abstract class ContainsTokenTest extends BaseLinterTest {
 	abstract protected function getToken();
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $source
+	 * @return array
 	 */
 	public function analyse($source)
 	{

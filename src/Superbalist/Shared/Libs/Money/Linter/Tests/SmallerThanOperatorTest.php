@@ -3,7 +3,7 @@
 class SmallerThanOperatorTest extends ContainsSimpleTokenTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getToken()
 	{
@@ -11,7 +11,7 @@ class SmallerThanOperatorTest extends ContainsSimpleTokenTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

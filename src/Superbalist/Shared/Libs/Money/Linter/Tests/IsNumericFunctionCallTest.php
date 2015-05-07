@@ -3,7 +3,7 @@
 class IsNumericFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{

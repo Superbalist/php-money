@@ -3,7 +3,7 @@
 class AbsFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{

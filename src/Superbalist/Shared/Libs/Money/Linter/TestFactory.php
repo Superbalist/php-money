@@ -101,6 +101,7 @@ class TestFactory {
 	/**
 	 * @param string $name
 	 * @return Tests\LinterTestInterface
+	 * @throws \RuntimeException
 	 */
 	public static function make($name)
 	{

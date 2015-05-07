@@ -44,8 +44,7 @@ class Linter {
 
 	/**
 	 * @param string $source
-	 * @param array $tests
-	 * @param string $filename (optional)
+	 * @param string $filename
 	 * @return SourceResult
 	 */
 	public function lintSource($source, $filename = null)

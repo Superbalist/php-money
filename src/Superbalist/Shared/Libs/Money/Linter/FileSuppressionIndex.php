@@ -17,7 +17,10 @@ class FileSuppressionIndex implements SuppressionIndexInterface {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $filename
+	 * @param int $number
+	 * @param string $line
+	 * @return bool
 	 */
 	public function isSuppressed($filename, $number, $line)
 	{
@@ -26,7 +29,9 @@ class FileSuppressionIndex implements SuppressionIndexInterface {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @param string $filename
+	 * @param int $number
+	 * @param string $line
 	 */
 	public function add($filename, $number, $line)
 	{
@@ -51,7 +56,7 @@ class FileSuppressionIndex implements SuppressionIndexInterface {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 *
 	 */
 	public function wipe()
 	{

@@ -5,6 +5,7 @@ class CurrencyConversionServiceFactory {
 	/**
 	 * @param string $name
 	 * @return CurrencyConversionServiceInterface
+	 * @throws \RuntimeException
 	 */
 	public static function make($name)
 	{

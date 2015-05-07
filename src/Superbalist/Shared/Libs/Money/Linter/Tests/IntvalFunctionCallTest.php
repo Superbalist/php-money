@@ -3,7 +3,7 @@
 class IntvalFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{
@@ -11,7 +11,7 @@ class IntvalFunctionCallTest extends FunctionCallTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

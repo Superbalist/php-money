@@ -16,7 +16,7 @@ class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionS
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getName()
 	{
@@ -24,7 +24,9 @@ class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionS
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @param Currency $currency
+	 * @return array
+	 * @throws \RuntimeException
 	 */
 	public function getConversionRatesTable(Currency $currency)
 	{

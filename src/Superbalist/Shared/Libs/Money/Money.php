@@ -111,7 +111,7 @@ class Money {
 	}
 
 	/**
-	 * @param Money|string|int|float $multiplier
+	 * @param Money|string|int|float $modulus
 	 * @return string
 	 */
 	public function mod($modulus)

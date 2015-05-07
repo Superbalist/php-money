@@ -3,7 +3,7 @@
 class NumberFloatTest extends ContainsTokenTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return int
 	 */
 	protected function getToken()
 	{
@@ -11,7 +11,7 @@ class NumberFloatTest extends ContainsTokenTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

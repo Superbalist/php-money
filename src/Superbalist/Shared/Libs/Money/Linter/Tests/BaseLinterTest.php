@@ -3,7 +3,7 @@
 abstract class BaseLinterTest implements LinterTestInterface {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getName()
 	{

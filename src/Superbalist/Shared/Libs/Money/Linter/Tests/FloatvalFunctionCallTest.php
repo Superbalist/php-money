@@ -3,7 +3,7 @@
 class FloatvalFunctionCallTest extends FunctionCallTest {
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	protected function getFunctionName()
 	{
@@ -11,7 +11,7 @@ class FloatvalFunctionCallTest extends FunctionCallTest {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getDescription()
 	{

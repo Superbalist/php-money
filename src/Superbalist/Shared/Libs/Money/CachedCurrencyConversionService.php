@@ -25,7 +25,7 @@ class CachedCurrencyConversionService extends BaseCurrencyConversionService {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @return string
 	 */
 	public function getName()
 	{
@@ -33,7 +33,8 @@ class CachedCurrencyConversionService extends BaseCurrencyConversionService {
 	}
 
 	/**
-	 * {@inheritdoc}
+	 * @param Currency $currency
+	 * @return array
 	 */
 	public function getConversionRatesTable(Currency $currency)
 	{
