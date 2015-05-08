@@ -37,7 +37,8 @@ class FileIndex {
 			$dirIterator->setFlags(\RecursiveDirectoryIterator::SKIP_DOTS);
 			$recursiveIterator = new \RecursiveIteratorIterator($dirIterator, \RecursiveIteratorIterator::SELF_FIRST);
 			$results = array();
-			foreach ($recursiveIterator as $file) { /** @var \SplFileInfo $file */
+			foreach ($recursiveIterator as $file) {
+				/** @var \SplFileInfo $file */
 				// ignore non files
 				if ( ! $file->isFile()) {
 					continue;

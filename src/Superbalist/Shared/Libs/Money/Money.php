@@ -143,8 +143,13 @@ class Money {
 	{
 		if ($money instanceof Money) {
 			if ( ! $this->isSameCurrencyAs($money)) {
-				throw new CurrencyMismatchException(sprintf('The monetary values being compared must be of the same currency (%s !== %s).',
-					$this->currency->getCode(), $money->getCurrency()->getCode()));
+				throw new CurrencyMismatchException(
+					sprintf(
+						'The monetary values being compared must be of the same currency (%s !== %s).',
+						$this->currency->getCode(),
+						$money->getCurrency()->getCode()
+					)
+				);
 			}
 		}
 		$amount = Utils::toStringAmount($money);

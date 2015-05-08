@@ -106,7 +106,8 @@ class TestFactory {
 	public static function make($name)
 	{
 		$tests = self::makeAll();
-		foreach ($tests as $test) { /** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
+		foreach ($tests as $test) {
+			/** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
 			if (strcasecmp($test->getName(), $name) === 0) {
 				return $test;
 			}
@@ -123,7 +124,8 @@ class TestFactory {
 		$matched = array();
 		$tests = self::makeAll();
 		foreach ($names as $name) {
-			foreach ($tests as $test) { /** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
+			foreach ($tests as $test) {
+				/** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
 				if (strcasecmp($test->getName(), $name) === 0) {
 					$matched[] = $test;
 					break 2;

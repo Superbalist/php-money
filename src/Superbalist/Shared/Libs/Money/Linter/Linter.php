@@ -52,7 +52,8 @@ class Linter {
 		$result = new SourceResult($filename);
 		$tests = count($this->tests) > 0 ? $this->tests : TestFactory::makeAll();
 		$timings = array();
-		foreach ($tests as $test) { /** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
+		foreach ($tests as $test) {
+			/** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
 			$start = microtime(true);
 			$warnings = $test->analyse($source);
 			$result->addWarnings($warnings);

@@ -36,8 +36,14 @@ class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionS
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$response = curl_exec($ch);
 		if ($response === false) {
-			throw new \RuntimeException(sprintf('An error occurred querying %s for conversion rates - (%s - %d)',
-				$url, curl_error($ch), curl_errno($ch)));
+			throw new \RuntimeException(
+				sprintf(
+					'An error occurred querying %s for conversion rates - (%s - %d)',
+					$url,
+					curl_error($ch),
+					curl_errno($ch)
+				)
+			);
 		}
 		$result = json_decode($response, true);
 		if (is_array($result) && isset($result['rates'])) {

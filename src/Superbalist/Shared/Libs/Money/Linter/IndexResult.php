@@ -53,8 +53,10 @@ class IndexResult {
 	{
 		$fp = fopen($filename, 'w');
 		fputcsv($fp, array('filename', 'line_number', 'line', 'description'));
-		foreach ($this->sourceResults as $sourceResult) { /** @var \Superbalist\Shared\Libs\Money\Linter\SourceResult $sourceResult */
-			foreach ($sourceResult->getWarnings() as $warning) { /** @var \Superbalist\Shared\Libs\Money\Linter\LintWarning $warning */
+		foreach ($this->sourceResults as $sourceResult) {
+			/** @var \Superbalist\Shared\Libs\Money\Linter\SourceResult $sourceResult */
+			foreach ($sourceResult->getWarnings() as $warning) {
+				/** @var \Superbalist\Shared\Libs\Money\Linter\LintWarning $warning */
 				$data = array(
 					$sourceResult->getFilename(),
 					$warning->getNumber(),
