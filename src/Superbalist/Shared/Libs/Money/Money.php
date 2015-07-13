@@ -2,6 +2,8 @@
 
 class Money {
 
+	const DEFAULT_SCALE_FACTOR = 4;
+
 	/**
 	 * @var string
 	 */
@@ -15,7 +17,7 @@ class Money {
 	/**
 	 * @var int
 	 */
-	protected $scaleFactor = 4;
+	protected $scaleFactor = self::DEFAULT_SCALE_FACTOR;
 
 	/**
 	 * @var CurrencyConversionServiceInterface
@@ -26,7 +28,7 @@ class Money {
 	 * @param Money|string|int|float $amount
 	 * @param Currency $currency
 	 */
-	public function __construct($amount, Currency $currency = null)
+	public function __construct($amount = '0', Currency $currency = null)
 	{
 		$this->amount = Utils::toStringAmount($amount);
 		if ($currency === null) {
@@ -75,10 +77,10 @@ class Money {
 	}
 
 	/**
-	 * @param Money $money
+	 * @param Money|string|int|float $money
 	 * @return Money
 	 */
-	public function subtract(Money $money)
+	public function subtract($money)
 	{
 		if ($money instanceof Money) {
 			$money = $this->getNormalisedMoney($money);
@@ -261,12 +263,19 @@ class Money {
 
 	/**
 	 * @param int $precision
+	 * @param string $decPoint
+	 * @param string $thousandsSep
 	 * @return string
 	 */
-	public function format($precision = 2)
+	public function format($precision = 2, $decPoint = '.', $thousandsSep = '')
 	{
-		// TODO: the value returned should be to precision decimal places
-		return $this->amount;
+		$value = $this->amount;
+		if (($pos = strpos($this->amount, '.')) !== false) {
+			$int = substr($this->amount, 0, $pos);
+			$decimals = substr($this->amount, $pos + 1, $precision);
+			$value = $int . '.' . $decimals;
+		}
+		return strval(number_format($value, $precision, $decPoint, $thousandsSep));
 	}
 
 	/**
@@ -303,6 +312,105 @@ class Money {
 	{
 		$amount = Utils::abs($this->amount, $this->scaleFactor);
 		return new self($amount, $this->currency);
+	}
+
+	/**
+	 * @param Money|string|int|float $money
+	 * @return Money
+	 */
+	public function min($money)
+	{
+		$money = Utils::toStringAmount($money);
+		$amount = Utils::min($this->amount, $money);
+		return new self($amount, $this->currency);
+	}
+
+	/**
+	 * @param Money|string|int|float $money
+	 * @return Money
+	 */
+	public function max($money)
+	{
+		$money = Utils::toStringAmount($money);
+		$amount = Utils::max($this->amount, $money);
+		return new self($amount, $this->currency);
+	}
+
+	/**
+	 * @return Money
+	 */
+	public function negate()
+	{
+		$amount = $this->isNegative() ? $this->amount : '-' . $this->amount;
+		return new self($amount, $this->currency);
+	}
+
+	/**
+	 * @param int $precision
+	 * @param int $mode
+	 * @return Money
+	 */
+	public function round($precision, $mode = PHP_ROUND_HALF_EVEN)
+	{
+		$amount = Utils::round($this->amount, $precision, $mode);
+		return new self($amount, $this->currency);
+	}
+
+	/**
+	 * @param string $rate
+	 * @return Money
+	 */
+	public function calculateVat($rate = '0.14')
+	{
+		$vat = Utils::calculateVat($this->amount, $rate);
+		return new self($vat, $this->currency);
+	}
+
+	/**
+	 * @param string $rate
+	 * @return Money
+	 */
+	public function calculateNetVatAmount($rate = '0.14')
+	{
+		$net = Utils::calculateNetVatAmount($this->amount, $rate);
+		return new self($net, $this->currency);
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function hasDecimals()
+	{
+		if (($pos = strpos($this->amount, '.')) !== false) {
+			$decimals = substr($this->amount, $pos + 1);
+			$decimals = rtrim($decimals, '0');
+			return $decimals !== '';
+		}
+		return false;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function toCents()
+	{
+		return $this->multiply('100')->toInt();
+	}
+
+	/**
+	 * @return int
+	 */
+	public function toInt()
+	{
+		return intval($this->amount);
+	}
+
+	/**
+	 * @return float
+	 */
+	public function toFloat()
+	{
+		return floatval($this->amount);
 	}
 
 	/**

@@ -85,11 +85,15 @@ class Currency {
 	public function display($amount, $precision = 2)
 	{
 		$amount = Utils::toStringAmount($amount);
-		// TODO: the value returned should be to precision decimal places
+		$money = new Money($amount);
 		if ($this->isLeftSign) {
-			return $this->sign . $amount;
+			if ($money->isLessThan('0')) {
+				return '-' . $this->sign . $money->abs()->format($precision);
+			} else {
+				return $this->sign . $money->format($precision);
+			}
 		} else {
-			return $amount . $this->sign;
+			return $money->format($precision) . $this->sign;
 		}
 	}
 

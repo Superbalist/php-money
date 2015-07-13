@@ -16,7 +16,7 @@ class SprintfFormatFloatTest extends BaseLinterTest {
 		foreach ($functions as $function) {
 			$token = $function['token'];
 			if ( ! isset($warnings[$token[2]])) {
-				$warnings[$token[2]] = new LintWarning($token[2], $this->getLineFromSource($source, $token[2]), $this);
+				$warnings[$token[2]] = LintWarning::make($source, $token[2], $this);
 			}
 		}
 		return array_values($warnings);

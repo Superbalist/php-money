@@ -14,15 +14,29 @@ class Utils {
 		} else if (is_int($value) || is_float($value)) {
 			$str = strval($value);
 		} else if (is_string($value)) {
-			if (preg_match('/^\-?(\d+)(\.\d+)?$/', $value)) {
+			$value = trim($value);
+			if ($value === '' || preg_match('/^\-?(\d+)(\.\d+)?$/', $value)) {
 				$str = $value;
 			} else {
 				throw new \InvalidArgumentException('The amount must be a valid string in the format; eg: (xx|xx.xx|xxx.xxxx|-xx)');
 			}
+		} else if ($value === null) {
+			$str = '0';
 		} else {
-			throw new \InvalidArgumentException('The amount must be a valid Money|int|float|string.');
+			throw new \InvalidArgumentException('The amount must be a valid Money|int|float|string|null.');
 		}
-		return self::isZero($str) ? '0' : $str;
+		$str = self::isZero($str) ? '0' : $str;
+		if (($pos = strpos($str, '.')) !== false) {
+			$int = substr($str, 0, $pos);
+			$decimals = substr($str, $pos + 1);
+			$decimals = rtrim($decimals, '0');
+			if ($decimals === '') {
+				$str = $int;
+			} else {
+				$str = $int . '.' . $decimals;
+			}
+		}
+		return $str;
 	}
 
 	/**
@@ -79,7 +93,7 @@ class Utils {
 	 * @param int $precision
 	 * @return string
 	 */
-	public static function abs($value, $precision = 4)
+	public static function abs($value, $precision = Money::DEFAULT_SCALE_FACTOR)
 	{
 		$value = self::toStringAmount($value);
 		if ($value[0] === '-') {
@@ -106,7 +120,7 @@ class Utils {
 		}
 		foreach ($args as $value) {
 			$value = self::toStringAmount($value);
-			if ($min === null || bccomp($value, $min, 4) < 0) {
+			if ($min === null || bccomp($value, $min, Money::DEFAULT_SCALE_FACTOR) < 0) {
 				$min = $value;
 			}
 		}
@@ -129,10 +143,49 @@ class Utils {
 		}
 		foreach ($args as $value) {
 			$value = self::toStringAmount($value);
-			if ($max === null || bccomp($value, $max, 4) > 0) {
+			if ($max === null || bccomp($value, $max, Money::DEFAULT_SCALE_FACTOR) > 0) {
 				$max = $value;
 			}
 		}
 		return $max;
+	}
+
+	/**
+	 * @param mixed $value
+	 * @param int $precision
+	 * @param int $mode
+	 * @return string
+	 */
+	public static function round($value, $precision, $mode = PHP_ROUND_HALF_UP)
+	{
+		$value = self::toStringAmount($value);
+		$n = round($value, $precision, $mode);
+		return strval($n);
+	}
+
+	/**
+	 * @param mixed $gross
+	 * @param string $rate
+	 * @returns string
+	 */
+	public static function calculateVat($gross, $rate = '0.14')
+	{
+		$gross = self::toStringAmount($gross);
+		$divisor = bcadd('1', $rate, Money::DEFAULT_SCALE_FACTOR);
+		$v = bcdiv($gross, $divisor, Money::DEFAULT_SCALE_FACTOR); // $gross / 1.14
+		$vat = bcmul($v, $rate, Money::DEFAULT_SCALE_FACTOR); // $v * 0.14
+		return self::round($vat, 2, PHP_ROUND_HALF_EVEN);
+	}
+
+	/**
+	 * @param mixed $gross
+	 * @param string $rate
+	 * @return string
+	 */
+	public static function calculateNetVatAmount($gross, $rate = '0.14')
+	{
+		$vat = self::calculateVat($gross, $rate);
+		$net = bcsub($gross, $vat, Money::DEFAULT_SCALE_FACTOR);
+		return self::round($net, 2, PHP_ROUND_HALF_EVEN);
 	}
 }

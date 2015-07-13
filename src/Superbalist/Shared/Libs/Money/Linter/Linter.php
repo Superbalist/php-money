@@ -12,7 +12,7 @@ class Linter {
 	 */
 	public function __construct(array $tests = array())
 	{
-		$this->tests = $tests;
+		$this->tests = count($tests) > 0 ? $tests : TestFactory::makeAll();
 	}
 
 	/**
@@ -39,7 +39,13 @@ class Linter {
 	public function lintFile($filename)
 	{
 		$source = file_get_contents($filename);
-		return $this->lintSource($source, $filename);
+		if (preg_match('/\.blade\.php$/i', $filename)) {
+			$source = \Blade::compileString($source);
+		}
+		$key = sprintf('linter_%s_%s', md5($filename), md5($source));
+		return \Cache::remember($key, 1440, function() use ($source, $filename) {
+			return $this->lintSource($source, $filename);
+		});
 	}
 
 	/**
@@ -50,9 +56,8 @@ class Linter {
 	public function lintSource($source, $filename = null)
 	{
 		$result = new SourceResult($filename);
-		$tests = count($this->tests) > 0 ? $this->tests : TestFactory::makeAll();
 		$timings = array();
-		foreach ($tests as $test) {
+		foreach ($this->tests as $test) {
 			/** @var \Superbalist\Shared\Libs\Money\Linter\Tests\LinterTestInterface $test */
 			$start = microtime(true);
 			$warnings = $test->analyse($source);

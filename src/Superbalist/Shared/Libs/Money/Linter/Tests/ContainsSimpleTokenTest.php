@@ -29,7 +29,7 @@ abstract class ContainsSimpleTokenTest extends BaseLinterTest {
 					// we found the token
 					// only need to create a new warning if one doesn't already exist for this line
 					if ( ! isset($warnings[$line])) {
-						$warnings[$line] = new LintWarning($line, $this->getLineFromSource($source, $line), $this);
+						$warnings[$line] = LintWarning::make($source, $line, $this);
 					}
 				}
 			}

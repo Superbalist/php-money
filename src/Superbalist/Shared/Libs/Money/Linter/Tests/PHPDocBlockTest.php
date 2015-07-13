@@ -26,7 +26,7 @@ abstract class PHPDOcBlockTest extends BaseLinterTest {
 					if (count($annotations) > 0) {
 						// only need to create a new warning if one doesn't already exist for this line
 						if ( ! isset($warnings[$token[2]])) {
-							$warnings[$token[2]] = new LintWarning($token[2], $this->getLineFromSource($source, $token[2]), $this);
+							$warnings[$token[2]] = LintWarning::make($source, $token[2], $this);
 						}
 					}
 				}
