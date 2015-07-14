@@ -23,7 +23,7 @@ class Utils {
 		} else if ($value === null) {
 			$str = '0';
 		} else {
-			throw new \InvalidArgumentException('The amount must be a valid Money|int|float|string|null.');
+			throw new \InvalidArgumentException(sprintf('The amount must be a valid Money|int|float|string|null (value = "%s").', $value));
 		}
 		$str = self::isZero($str) ? '0' : $str;
 		if (($pos = strpos($str, '.')) !== false) {
