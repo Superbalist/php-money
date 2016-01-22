@@ -1,0 +1,24 @@
+{
+	"name": "superbalist/money-php",
+	"description": "A money and currency library for handling arbitrary-precision arithmetic",
+	"authors": [
+		{
+			"name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
+			"email": "info@superbalist.com"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"ext-bcmath": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Superbalist\\Money\\": "src/"
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	}
+}
