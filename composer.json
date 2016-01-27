@@ -1,5 +1,5 @@
 {
-	"name": "superbalist/money-php",
+	"name": "superbalist/php-money",
 	"description": "A money and currency library for handling arbitrary-precision arithmetic",
 	"authors": [
 		{

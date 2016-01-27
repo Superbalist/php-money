@@ -1,1 +1,1 @@
-# money-php
+# php-money
