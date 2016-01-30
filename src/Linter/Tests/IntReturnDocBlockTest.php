@@ -1,23 +1,25 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class IntReturnDocBlockTest extends PHPDOcBlockTest {
+class IntReturnDocBlockTest extends PHPDOcBlockTest
+{
 
-	/**
-	 * @return array
-	 */
-	protected function getAnnotationCriteria()
-	{
-		return array(
-			'annotation' => 'return',
-			'type' => 'int'
-		);
-	}
+    /**
+     * @return array
+     */
+    protected function getAnnotationCriteria()
+    {
+        return array(
+            'annotation' => 'return',
+            'type' => 'int'
+        );
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a PHPDoc "@return int" comment.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a PHPDoc "@return int" comment.';
+    }
 }

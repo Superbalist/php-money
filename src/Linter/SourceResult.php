@@ -1,102 +1,104 @@
-<?php namespace Superbalist\Money\Linter;
+<?php
+namespace Superbalist\Money\Linter;
 
-class SourceResult {
+class SourceResult
+{
 
-	/**
-	 * @var string
-	 */
-	protected $filename;
+    /**
+     * @var string
+     */
+    protected $filename;
 
-	/**
-	 * @var array
-	 */
-	protected $warnings = array();
+    /**
+     * @var array
+     */
+    protected $warnings = array();
 
-	/**
-	 * @var array
-	 */
-	protected $timings = array();
+    /**
+     * @var array
+     */
+    protected $timings = array();
 
-	/**
-	 * @param string $filename
-	 */
-	public function __construct($filename = null)
-	{
-		$this->filename = $filename;
-	}
+    /**
+     * @param string $filename
+     */
+    public function __construct($filename = null)
+    {
+        $this->filename = $filename;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getFilename()
-	{
-		return $this->filename;
-	}
+    /**
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getWarnings()
-	{
-		return $this->warnings;
-	}
+    /**
+     * @return array
+     */
+    public function getWarnings()
+    {
+        return $this->warnings;
+    }
 
-	/**
-	 * @param LintWarning $warning
-	 */
-	public function addWarning(LintWarning $warning)
-	{
-		$this->warnings[] = $warning;
-	}
+    /**
+     * @param LintWarning $warning
+     */
+    public function addWarning(LintWarning $warning)
+    {
+        $this->warnings[] = $warning;
+    }
 
-	/**
-	 * @param array $warnings
-	 */
-	public function addWarnings(array $warnings)
-	{
-		foreach ($warnings as $warning) {
-			$this->addWarning($warning);
-		}
-	}
+    /**
+     * @param array $warnings
+     */
+    public function addWarnings(array $warnings)
+    {
+        foreach ($warnings as $warning) {
+            $this->addWarning($warning);
+        }
+    }
 
-	/**
-	 * @return bool
-	 */
-	public function hasWarnings()
-	{
-		return count($this->warnings) > 0;
-	}
+    /**
+     * @return bool
+     */
+    public function hasWarnings()
+    {
+        return count($this->warnings) > 0;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function countWarnings()
-	{
-		return count($this->warnings);
-	}
+    /**
+     * @return int
+     */
+    public function countWarnings()
+    {
+        return count($this->warnings);
+    }
 
-	/**
-	 * @param array $timings
-	 */
-	public function setDebugTimings($timings)
-	{
-		arsort($timings);
-		$this->timings = $timings;
-	}
+    /**
+     * @param array $timings
+     */
+    public function setDebugTimings($timings)
+    {
+        arsort($timings);
+        $this->timings = $timings;
+    }
 
-	/**
-	 * @return array
-	 */
-	public function getDebugTimings()
-	{
-		return $this->timings;
-	}
+    /**
+     * @return array
+     */
+    public function getDebugTimings()
+    {
+        return $this->timings;
+    }
 
-	/**
-	 * @return float
-	 */
-	public function getTotalTestRunTime()
-	{
-		return array_sum($this->timings);
-	}
+    /**
+     * @return float
+     */
+    public function getTotalTestRunTime()
+    {
+        return array_sum($this->timings);
+    }
 }

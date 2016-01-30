@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class FloatvalFunctionCallTest extends FunctionCallTest {
+class FloatvalFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'floatval';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'floatval';
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a cast to a float, real or double.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a cast to a float, real or double.';
+    }
 }

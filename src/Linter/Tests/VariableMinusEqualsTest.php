@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class VariableMinusEqualsTest extends ContainsTokenTest {
+class VariableMinusEqualsTest extends ContainsTokenTest
+{
 
-	/**
-	 * @return int
-	 */
-	protected function getToken()
-	{
-		return T_MINUS_EQUAL;
-	}
+    /**
+     * @return int
+     */
+    protected function getToken()
+    {
+        return T_MINUS_EQUAL;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a "$variable -=" operation.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a "$variable -=" operation.';
+    }
 }

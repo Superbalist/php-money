@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class PlusOperatorTest extends ContainsSimpleTokenTest {
+class PlusOperatorTest extends ContainsSimpleTokenTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getToken()
-	{
-		return '+';
-	}
+    /**
+     * @return string
+     */
+    protected function getToken()
+    {
+        return '+';
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a plus (+) operator.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a plus (+) operator.';
+    }
 }

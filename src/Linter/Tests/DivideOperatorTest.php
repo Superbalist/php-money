@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class DivideOperatorTest extends ContainsSimpleTokenTest {
+class DivideOperatorTest extends ContainsSimpleTokenTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getToken()
-	{
-		return '/';
-	}
+    /**
+     * @return string
+     */
+    protected function getToken()
+    {
+        return '/';
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a divide (/) operator.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a divide (/) operator.';
+    }
 }

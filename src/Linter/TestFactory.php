@@ -1,4 +1,5 @@
-<?php namespace Superbalist\Money\Linter;
+<?php
+namespace Superbalist\Money\Linter;
 
 use Superbalist\Money\Linter\Tests\AbsFunctionCallTest;
 use Superbalist\Money\Linter\Tests\ArraySumFunctionCallTest;
@@ -44,94 +45,95 @@ use Superbalist\Money\Linter\Tests\VariableModEqualsTest;
 use Superbalist\Money\Linter\Tests\VariablePlusEqualsTest;
 use Superbalist\Money\Linter\Tests\VariableTimesEqualsTest;
 
-class TestFactory {
+class TestFactory
+{
 
-	/**
-	 * @return array
-	 */
-	public static function makeAll()
-	{
-		return array(
-			new AbsFunctionCallTest(),
-			new ArraySumFunctionCallTest(),
-			new CeilFunctionCallTest(),
-			new DivideOperatorTest(),
-			new FloatCastTest(),
-			new FloatParamDocBlockTest(),
-			new FloatReturnDocBlockTest(),
-			new FloatvalFunctionCallTest(),
-			new FloatVarDocBlockTest(),
-			new FloorFunctionCallTest(),
-			new GreaterThanOperatorTest(),
-			new GreaterThanOrEqualsOperatorTest(),
-			new IntCastTest(),
-			new IntParamDocBlockTest(),
-			new IntReturnDocBlockTest(),
-			new IntvalFunctionCallTest(),
-			new IntVarDocBlockTest(),
-			new IsFloatFunctionCallTest(),
-			new IsIntegerFunctionCallTest(),
-			new IsIntFunctionCallTest(),
-			new IsNumericFunctionCallTest(),
-			new MaxFunctionCallTest(),
-			new MinusOperatorTest(),
-			new MinFunctionCallTest(),
-			new ModOperatorTest(),
-			new MoneyFormatCallTest(),
-			new MultiplyOperatorTest(),
-			new NumberFloatTest(),
-			new NumberIntTest(),
-			new NumberFormatCallTest(),
-			new PlusOperatorTest(),
-			new PowFunctionCallTest(),
-			new RoundFunctionCallTest(),
-			new SmallerThanOperatorTest(),
-			new SmallerThanOrEqualsOperatorTest(),
-			new SprintfFormatFloatTest(),
-			new VariableDecrementTest(),
-			new VariableDivideEqualsTest(),
-			new VariableIncrementTest(),
-			new VariableMinusEqualsTest(),
-			new VariableModEqualsTest(),
-			new VariablePlusEqualsTest(),
-			new VariableTimesEqualsTest(),
-		);
-	}
+    /**
+     * @return array
+     */
+    public static function makeAll()
+    {
+        return array(
+            new AbsFunctionCallTest(),
+            new ArraySumFunctionCallTest(),
+            new CeilFunctionCallTest(),
+            new DivideOperatorTest(),
+            new FloatCastTest(),
+            new FloatParamDocBlockTest(),
+            new FloatReturnDocBlockTest(),
+            new FloatvalFunctionCallTest(),
+            new FloatVarDocBlockTest(),
+            new FloorFunctionCallTest(),
+            new GreaterThanOperatorTest(),
+            new GreaterThanOrEqualsOperatorTest(),
+            new IntCastTest(),
+            new IntParamDocBlockTest(),
+            new IntReturnDocBlockTest(),
+            new IntvalFunctionCallTest(),
+            new IntVarDocBlockTest(),
+            new IsFloatFunctionCallTest(),
+            new IsIntegerFunctionCallTest(),
+            new IsIntFunctionCallTest(),
+            new IsNumericFunctionCallTest(),
+            new MaxFunctionCallTest(),
+            new MinusOperatorTest(),
+            new MinFunctionCallTest(),
+            new ModOperatorTest(),
+            new MoneyFormatCallTest(),
+            new MultiplyOperatorTest(),
+            new NumberFloatTest(),
+            new NumberIntTest(),
+            new NumberFormatCallTest(),
+            new PlusOperatorTest(),
+            new PowFunctionCallTest(),
+            new RoundFunctionCallTest(),
+            new SmallerThanOperatorTest(),
+            new SmallerThanOrEqualsOperatorTest(),
+            new SprintfFormatFloatTest(),
+            new VariableDecrementTest(),
+            new VariableDivideEqualsTest(),
+            new VariableIncrementTest(),
+            new VariableMinusEqualsTest(),
+            new VariableModEqualsTest(),
+            new VariablePlusEqualsTest(),
+            new VariableTimesEqualsTest(),
+        );
+    }
 
-	/**
-	 * @param string $name
-	 * @return Tests\LinterTestInterface
-	 * @throws \RuntimeException
-	 */
-	public static function make($name)
-	{
-		$tests = self::makeAll();
-		foreach ($tests as $test) {
-			/** @var \Superbalist\Money\Linter\Tests\LinterTestInterface $test */
-			if (strcasecmp($test->getName(), $name) === 0) {
-				return $test;
-			}
-		}
-		throw new \RuntimeException(sprintf('The test %s does not exist.', $name));
-	}
+    /**
+     * @param string $name
+     * @return Tests\LinterTestInterface
+     * @throws \RuntimeException
+     */
+    public static function make($name)
+    {
+        $tests = self::makeAll();
+        foreach ($tests as $test) {
+            /** @var \Superbalist\Money\Linter\Tests\LinterTestInterface $test */
+            if (strcasecmp($test->getName(), $name) === 0) {
+                return $test;
+            }
+        }
+        throw new \RuntimeException(sprintf('The test %s does not exist.', $name));
+    }
 
-	/**
-	 * @param array $names
-	 * @return array
-	 */
-	public static function makeFrom(array $names)
-	{
-		$matched = array();
-		$tests = self::makeAll();
-		foreach ($names as $name) {
-			foreach ($tests as $test) {
-				/** @var \Superbalist\Money\Linter\Tests\LinterTestInterface $test */
-				if (strcasecmp($test->getName(), $name) === 0) {
-					$matched[] = $test;
-					break 2;
-				}
-			}
-		}
-		return $matched;
-	}
+    /**
+     * @param array $names
+     * @return array
+     */
+    public static function makeFrom(array $names)
+    {
+        $matched = array();
+        $tests = self::makeAll();
+        foreach ($names as $name) {
+            foreach ($tests as $test) {
+                /** @var \Superbalist\Money\Linter\Tests\LinterTestInterface $test */
+                if (strcasecmp($test->getName(), $name) === 0) {
+                    $matched[] = $test;
+                    break 2;
+                }
+            }
+        }
+        return $matched;
+    }
 }

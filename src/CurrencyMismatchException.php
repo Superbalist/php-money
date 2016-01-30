@@ -1,5 +1,7 @@
-<?php namespace Superbalist\Money;
+<?php
+namespace Superbalist\Money;
 
-class CurrencyMismatchException extends \Exception {
+class CurrencyMismatchException extends \Exception
+{
 
 }

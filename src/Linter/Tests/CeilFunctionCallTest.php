@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class CeilFunctionCallTest extends FunctionCallTest {
+class CeilFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'ceil';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'ceil';
+    }
 }

@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class PowFunctionCallTest extends FunctionCallTest {
+class PowFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'pow';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'pow';
+    }
 }

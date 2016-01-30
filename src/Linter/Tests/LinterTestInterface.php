@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-interface LinterTestInterface {
+interface LinterTestInterface
+{
 
-	/**
-	 * @return string
-	 */
-	public function getName();
+    /**
+     * @return string
+     */
+    public function getName();
 
-	/**
-	 * @param string $source
-	 * @return array
-	 */
-	public function analyse($source);
+    /**
+     * @param string $source
+     * @return array
+     */
+    public function analyse($source);
 
-	/**
-	 * @return string
-	 */
-	public function getDescription();
+    /**
+     * @return string
+     */
+    public function getDescription();
 }

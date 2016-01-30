@@ -1,20 +1,22 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class NumberIntTest extends ContainsTokenTest {
+class NumberIntTest extends ContainsTokenTest
+{
 
-	/**
-	 * @return int
-	 */
-	protected function getToken()
-	{
-		return T_LNUMBER;
-	}
+    /**
+     * @return int
+     */
+    protected function getToken()
+    {
+        return T_LNUMBER;
+    }
 
-	/**
-	 * @return string
-	 */
-	public function getDescription()
-	{
-		return 'The line contains a number of type int.';
-	}
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return 'The line contains a number of type int.';
+    }
 }

@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class AbsFunctionCallTest extends FunctionCallTest {
+class AbsFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'abs';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'abs';
+    }
 }

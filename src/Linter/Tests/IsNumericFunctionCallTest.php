@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class IsNumericFunctionCallTest extends FunctionCallTest {
+class IsNumericFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'is_numeric';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'is_numeric';
+    }
 }

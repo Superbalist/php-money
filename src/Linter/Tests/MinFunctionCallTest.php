@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class MinFunctionCallTest extends FunctionCallTest {
+class MinFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'min';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'min';
+    }
 }

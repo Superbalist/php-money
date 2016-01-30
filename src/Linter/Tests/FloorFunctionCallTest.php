@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class FloorFunctionCallTest extends FunctionCallTest {
+class FloorFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'floor';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'floor';
+    }
 }

@@ -1,12 +1,14 @@
-<?php namespace Superbalist\Money\Linter\Tests;
+<?php
+namespace Superbalist\Money\Linter\Tests;
 
-class ArraySumFunctionCallTest extends FunctionCallTest {
+class ArraySumFunctionCallTest extends FunctionCallTest
+{
 
-	/**
-	 * @return string
-	 */
-	protected function getFunctionName()
-	{
-		return 'array_sum';
-	}
+    /**
+     * @return string
+     */
+    protected function getFunctionName()
+    {
+        return 'array_sum';
+    }
 }
