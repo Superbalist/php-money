@@ -1,6 +1,7 @@
 {
 	"name": "superbalist/php-money",
 	"description": "A money and currency library for handling arbitrary-precision arithmetic",
+    "license": "MIT",
 	"authors": [
 		{
 			"name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
