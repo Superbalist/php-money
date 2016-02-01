@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2016-02-01
+
+* Fix typod class name PHPDocBlockTest
+
 ## 1.0.3 - 2016-02-01
 
 * Switch to PSR-2 style guide
