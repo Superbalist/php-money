@@ -31,8 +31,11 @@ class Money
      * @param Currency $currency
      * @param CurrencyConversionServiceInterface $currencyConversionService
      */
-    public function __construct($amount = '0', Currency $currency = null, CurrencyConversionServiceInterface $currencyConversionService = null)
-    {
+    public function __construct(
+        $amount = '0',
+        Currency $currency = null,
+        CurrencyConversionServiceInterface $currencyConversionService = null
+    ) {
         $this->amount = Utils::toStringAmount($amount);
         $this->currency = $currency === null ? CurrencyFactory::makeDefault() : $currency;
         $this->currencyConversionService = $currencyConversionService === null ?
