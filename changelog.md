@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.3 - release pending
+## 1.0.3 - 2016-02-01
 
 * Switch to PSR-2 style guide
 * Add setDefault method to CurrencyFactory
