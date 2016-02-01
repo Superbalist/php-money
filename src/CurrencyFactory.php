@@ -5,6 +5,11 @@ class CurrencyFactory
 {
 
     /**
+     * @var string
+     */
+    protected static $default = 'ZAR';
+
+    /**
      * @param string $code
      * @return Currency
      * @throws CurrencyNotSupportedException
@@ -29,7 +34,23 @@ class CurrencyFactory
      */
     public static function makeDefault()
     {
-        return self::make('ZAR');
+        return self::make(self::$default);
+    }
+
+    /**
+     * @param string $default
+     */
+    public static function setDefault($default)
+    {
+        self::$default = $default;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDefault()
+    {
+        return self::$default;
     }
 
     /**

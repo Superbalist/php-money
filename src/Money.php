@@ -29,15 +29,15 @@ class Money
     /**
      * @param Money|string|int|float $amount
      * @param Currency $currency
+     * @param CurrencyConversionServiceInterface $currencyConversionService
      */
-    public function __construct($amount = '0', Currency $currency = null)
+    public function __construct($amount = '0', Currency $currency = null, CurrencyConversionServiceInterface $currencyConversionService = null)
     {
         $this->amount = Utils::toStringAmount($amount);
-        if ($currency === null) {
-            $currency = CurrencyFactory::makeDefault();
-        }
-        $this->currency = $currency;
-        $this->currencyConversionService = CurrencyConversionServiceFactory::makeDefault();
+        $this->currency = $currency === null ? CurrencyFactory::makeDefault() : $currency;
+        $this->currencyConversionService = $currencyConversionService === null ?
+            CurrencyConversionServiceFactory::makeDefault() :
+            $currencyConversionService;
     }
 
     /**

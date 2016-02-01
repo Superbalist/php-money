@@ -3,6 +3,7 @@
 ## 1.0.3 - release pending
 
 * Switch to PSR-2 style guide
+* Add setDefault method to CurrencyFactory
 
 ## 1.0.2 - 2016-01-27
 
