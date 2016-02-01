@@ -1,7 +1,7 @@
 <?php
 namespace Superbalist\Money\Linter\Tests;
 
-class FloatParamDocBlockTest extends PHPDOcBlockTest
+class FloatParamDocBlockTest extends PHPDocBlockTest
 {
 
     /**

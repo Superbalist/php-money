@@ -3,7 +3,7 @@ namespace Superbalist\Money\Linter\Tests;
 
 use Superbalist\Money\Linter\LintWarning;
 
-abstract class PHPDOcBlockTest extends BaseLinterTest
+abstract class PHPDocBlockTest extends BaseLinterTest
 {
 
     /**

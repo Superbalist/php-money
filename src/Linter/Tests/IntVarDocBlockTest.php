@@ -1,7 +1,7 @@
 <?php
 namespace Superbalist\Money\Linter\Tests;
 
-class IntVarDocBlockTest extends PHPDOcBlockTest
+class IntVarDocBlockTest extends PHPDocBlockTest
 {
 
     /**
