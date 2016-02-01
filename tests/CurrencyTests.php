@@ -20,6 +20,17 @@ class CurrencyTests extends PHPUnit_Framework_TestCase
     /**
      *
      */
+    public function testFactoryGetSetDefaultCurrency()
+    {
+        $default = 'ZAR';
+        \Superbalist\Money\CurrencyFactory::setDefault($default);
+        $actual = \Superbalist\Money\CurrencyFactory::getDefault();
+        $this->assertSame($actual, $default);
+    }
+
+    /**
+     *
+     */
     public function testFactoryMakeDefaultCurrency()
     {
         $currency = \Superbalist\Money\CurrencyFactory::makeDefault();

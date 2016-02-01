@@ -14,20 +14,12 @@ class CurrencyConversionTests extends PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function testFactoryMakeCurrencyConversionService()
+    public function testServiceProviderGetSetCurrencyConversionService()
     {
-        $service = \Superbalist\Money\CurrencyConversionServiceFactory::make('OPENEXCHANGERATES');
-        $this->assertInstanceOf('\Superbalist\Money\CurrencyConversionServiceInterface', $service);
-        $this->assertInstanceOf('\Superbalist\Money\OpenExchangeRatesCurrencyConversionService', $service);
-    }
-
-    /**
-     *
-     */
-    public function testFactoryMakeDefaultCurrencyConversionService()
-    {
-        $service = \Superbalist\Money\CurrencyConversionServiceFactory::makeDefault();
-        $this->assertInstanceOf('\Superbalist\Money\CurrencyConversionServiceInterface', $service);
+        $service = new \Superbalist\Money\MockCurrencyConversionService();
+        \Superbalist\Money\CurrencyConversionServiceProvider::setCurrencyConversionService($service);
+        $actual = \Superbalist\Money\CurrencyConversionServiceProvider::getCurrencyConversionService();
+        $this->assertSame($actual, $service);
     }
 
     /**

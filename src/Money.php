@@ -36,7 +36,7 @@ class Money
         $this->amount = Utils::toStringAmount($amount);
         $this->currency = $currency === null ? CurrencyFactory::makeDefault() : $currency;
         $this->currencyConversionService = $currencyConversionService === null ?
-            CurrencyConversionServiceFactory::makeDefault() :
+            CurrencyConversionServiceProvider::getCurrencyConversionService() :
             $currencyConversionService;
     }
 

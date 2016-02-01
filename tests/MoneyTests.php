@@ -17,7 +17,7 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function testGetSetCurrencyConversionService()
     {
-        $service = \Superbalist\Money\CurrencyConversionServiceFactory::makeDefault();
+        $service = new \Superbalist\Money\MockCurrencyConversionService();
         $money = new \Superbalist\Money\Money('100');
         $money->setCurrencyConversionService($service);
         $actual = $money->getCurrencyConversionService();

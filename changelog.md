@@ -6,6 +6,7 @@
 * Add setDefault method to CurrencyFactory
 * Allow CurrencyConversionService to be passed in to money constructor
 * Add addCurrency method to CurrencyFactory
+* Change CurrencyConversionServiceFactory to a service provider with get/set methods
 
 ## 1.0.2 - 2016-01-27
 
