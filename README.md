@@ -3,6 +3,10 @@
 A money and currency library for handling arbitrary-precision arithmetic
 
 [![Author](http://img.shields.io/badge/author-@superbalist-blue.svg?style=flat-square)](https://twitter.com/superbalist)
+[![Build Status](https://img.shields.io/travis/Superbalist/php-money/master.svg?style=flat-square)](https://travis-ci.org/Superbalist/php-money)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/superbalist/php-money.svg?style=flat-square)](https://packagist.org/packages/superbalist/php-money)
+[![Total Downloads](https://img.shields.io/packagist/dt/superbalist/php-money.svg?style=flat-square)](https://packagist.org/packages/superbalist/php-money)
 
 
 ## Installation
