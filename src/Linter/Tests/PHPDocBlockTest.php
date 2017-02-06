@@ -1,11 +1,11 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 use Superbalist\Money\Linter\LintWarning;
 
 abstract class PHPDocBlockTest extends BaseLinterTest
 {
-
     /**
      * @return array
      */
@@ -13,11 +13,12 @@ abstract class PHPDocBlockTest extends BaseLinterTest
 
     /**
      * @param string $source
+     *
      * @return array
      */
     public function analyse($source)
     {
-        $warnings = array();
+        $warnings = [];
         $tokens = token_get_all($source);
         foreach ($tokens as $token) {
             if (is_array($token)) {
@@ -39,6 +40,7 @@ abstract class PHPDocBlockTest extends BaseLinterTest
 
     /**
      * @param string $comment
+     *
      * @return array
      */
     protected function getAnnotationsFromComment($comment)
@@ -46,28 +48,28 @@ abstract class PHPDocBlockTest extends BaseLinterTest
         // normalise new line chars
         $comment = preg_replace('~\R~u', "\n", $comment);
         $lines = explode("\n", $comment);
-        $annotations = array();
+        $annotations = [];
         foreach ($lines as $line) {
             if (preg_match('/^\s\*\s@(param)\s([a-z0-9]+)\s(\$[a-z0-9_]+)(\s(.+))?$/i', $line, $matches)) {
-                $annotations[] = array(
+                $annotations[] = [
                     'annotation' => 'param',
                     'type' => strtolower($matches[2]),
                     'variable' => $matches[3],
-                    'description' => isset($matches[5]) ? $matches[5] : null
-                );
+                    'description' => isset($matches[5]) ? $matches[5] : null,
+                ];
             } elseif (preg_match('/^\s\*\s@(return)\s([a-z0-9]+)(\s(.+))?$/i', $line, $matches)) {
-                $annotations[] = array(
+                $annotations[] = [
                     'annotation' => 'return',
                     'type' => strtolower($matches[2]),
-                    'description' => isset($matches[4]) ? $matches[4] : null
-                );
+                    'description' => isset($matches[4]) ? $matches[4] : null,
+                ];
             } else {
                 if (preg_match('/^\s\*\s@(var)\s([a-z0-9]+)(\s(.+))?$/i', $line, $matches)) {
-                    $annotations[] = array(
+                    $annotations[] = [
                         'annotation' => 'var',
                         'type' => strtolower($matches[2]),
-                        'description' => isset($matches[4]) ? $matches[4] : null
-                    );
+                        'description' => isset($matches[4]) ? $matches[4] : null,
+                    ];
                 }
             }
         }
@@ -77,11 +79,12 @@ abstract class PHPDocBlockTest extends BaseLinterTest
     /**
      * @param string $comment
      * @param array $criteria
+     *
      * @return array
      */
     protected function getMatchingAnnotationsFromComment($comment, array $criteria)
     {
-        $matching = array();
+        $matching = [];
         $annotations = $this->getAnnotationsFromComment($comment);
         foreach ($annotations as $annotation) {
             foreach ($criteria as $k => $v) {

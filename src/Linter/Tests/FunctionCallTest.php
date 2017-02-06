@@ -1,11 +1,11 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 use Superbalist\Money\Linter\LintWarning;
 
 abstract class FunctionCallTest extends BaseLinterTest
 {
-
     /**
      * @return string
      */
@@ -13,11 +13,12 @@ abstract class FunctionCallTest extends BaseLinterTest
 
     /**
      * @param string $source
+     *
      * @return array
      */
     public function analyse($source)
     {
-        $warnings = array();
+        $warnings = [];
         $tokens = token_get_all($source);
         foreach ($tokens as $token) {
             if (is_array($token)) {

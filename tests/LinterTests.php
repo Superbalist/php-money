@@ -2,7 +2,6 @@
 
 class LinterTests extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @param string $source
      * @param \Superbalist\Money\Linter\Tests\LinterTestInterface $test
@@ -73,16 +72,16 @@ class LinterTests extends PHPUnit_Framework_TestCase
      */
     public function testMatchesFloatParamDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
- * @param float \$number this is a test
+ * @param float $number this is a test
  * @return float test
  */
-public function getFloatNumber(\$number)
+public function getFloatNumber($number)
 {
-	return \$number;
+	return $number;
 }
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\FloatParamDocBlockTest());
@@ -93,16 +92,16 @@ EOT;
      */
     public function testMatchesFloatReturnDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
- * @param float \$number this is a test
+ * @param float $number this is a test
  * @return float test
  */
-public function getFloatNumber(\$number)
+public function getFloatNumber($number)
 {
-	return \$number;
+	return $number;
 }
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\FloatReturnDocBlockTest());
@@ -124,13 +123,13 @@ EOT;
      */
     public function testMatchesFloatVarDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
  * @var float
  */
-protected \$number = 0.0;
+protected $number = 0.0;
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\FloatVarDocBlockTest());
     }
@@ -184,16 +183,16 @@ EOT;
      */
     public function testMatchesIntParamDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
- * @param int \$number this is a test
+ * @param int $number this is a test
  * @return int test
  */
-public function getIntNumber(\$number)
+public function getIntNumber($number)
 {
-	return \$number;
+	return $number;
 }
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\IntParamDocBlockTest());
@@ -204,16 +203,16 @@ EOT;
      */
     public function testMatchesIntReturnDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
- * @param int \$number this is a test
+ * @param int $number this is a test
  * @return int test
  */
-public function getIntNumber(\$number)
+public function getIntNumber($number)
 {
-	return \$number;
+	return $number;
 }
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\IntReturnDocBlockTest());
@@ -235,13 +234,13 @@ EOT;
      */
     public function testMatchesIntVarDocBlockTest()
     {
-        $source = <<<EOT
+        $source = <<<'EOT'
 <?php
 
 /**
  * @var int
  */
-protected \$number = 0;
+protected $number = 0;
 EOT;
         $this->assertLinterThrowsWarnings($source, new \Superbalist\Money\Linter\Tests\IntVarDocBlockTest());
     }

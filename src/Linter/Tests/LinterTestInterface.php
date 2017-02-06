@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 interface LinterTestInterface
 {
-
     /**
      * @return string
      */
@@ -11,6 +11,7 @@ interface LinterTestInterface
 
     /**
      * @param string $source
+     *
      * @return array
      */
     public function analyse($source);

@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class GreaterThanOperatorTest extends ContainsSimpleTokenTest
 {
-
     /**
      * @return string
      */

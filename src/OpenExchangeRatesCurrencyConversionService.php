@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money;
 
 class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionService
 {
-
     /**
      * @var string
      */
@@ -27,8 +27,10 @@ class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionS
 
     /**
      * @param Currency $currency
-     * @return array
+     *
      * @throws \RuntimeException
+     *
+     * @return array
      */
     public function getConversionRatesTable(Currency $currency)
     {
@@ -54,22 +56,22 @@ class OpenExchangeRatesCurrencyConversionService extends BaseCurrencyConversionS
             // we therefore need to convert the table to our own base currency
             // first, our own base must be present in the conversion table
             if (!isset($rates[$currency->getCode()])) {
-                return array(); // nothing more to do
+                return []; // nothing more to do
             }
-            $usd2base = (string)$rates[$currency->getCode()];
-            $table = array();
+            $usd2base = (string) $rates[$currency->getCode()];
+            $table = [];
             foreach ($rates as $code => $rate) {
                 if ($code === 'USD') {
                     $table[$code] = '1';
                 } else {
-                    $rate = (string)$rate;
+                    $rate = (string) $rate;
                     $multiplier = bcdiv('1', $usd2base, 6);
                     $table[$code] = bcmul($rate, $multiplier, 6);
                 }
             }
             return $table;
         } else {
-            return array(); // response isn't what we expected / missing rates
+            return []; // response isn't what we expected / missing rates
         }
     }
 }

@@ -1,18 +1,19 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 use Superbalist\Money\Linter\LintWarning;
 
 class SprintfFormatFloatTest extends BaseLinterTest
 {
-
     /**
      * @param string $source
+     *
      * @return array
      */
     public function analyse($source)
     {
-        $warnings = array();
+        $warnings = [];
         $functions = $this->extractSprintfFloatFormatFunctionCalls($source);
         foreach ($functions as $function) {
             $token = $function['token'];
@@ -25,11 +26,12 @@ class SprintfFormatFloatTest extends BaseLinterTest
 
     /**
      * @param string $source
+     *
      * @return array
      */
     protected function extractSprintfFloatFormatFunctionCalls($source)
     {
-        $matching = array();
+        $matching = [];
         $functions = $this->extractMatchingFunctionCallsFromSource($source, 'sprintf');
         foreach ($functions as $function) {
             // format argument should be in position 0
@@ -46,6 +48,7 @@ class SprintfFormatFloatTest extends BaseLinterTest
     /**
      * @param string $source
      * @param string $function
+     *
      * @return array
      */
     protected function extractMatchingFunctionCallsFromSource($source, $function)
@@ -57,6 +60,7 @@ class SprintfFormatFloatTest extends BaseLinterTest
     /**
      * @param array $tokens
      * @param string $function
+     *
      * @return array
      */
     protected function extractMatchingFunctionCallsFromTokens($tokens, $function)
@@ -68,11 +72,12 @@ class SprintfFormatFloatTest extends BaseLinterTest
     /**
      * @param array $functions
      * @param string $function
+     *
      * @return array
      */
     protected function extractMatchingFunctionCallsFromFunctions(array $functions, $function)
     {
-        $matching = array();
+        $matching = [];
         foreach ($functions as $f) {
             if (strcasecmp($f['name'], $function) === 0) {
                 // found a matching function
@@ -96,12 +101,13 @@ class SprintfFormatFloatTest extends BaseLinterTest
     /**
      * @param array $tokens
      * @param bool $inRecursiveFunction
+     *
      * @return array
      */
     protected function extractFunctionCallsFromTokens(array &$tokens, $inRecursiveFunction = false)
     {
         $isInFunction = false;
-        $functions = array();
+        $functions = [];
         $function = null;
         while (count($tokens) > 0) {
             // grab the next token off the top of the stack
@@ -127,10 +133,10 @@ class SprintfFormatFloatTest extends BaseLinterTest
                         );
                     } else {
                         if ($token[0] !== T_WHITESPACE) {
-                            $function['args'][] = array(
+                            $function['args'][] = [
                                 'type' => 'argument',
-                                'token' => $token
-                            );
+                                'token' => $token,
+                            ];
                         }
                     }
                 }
@@ -139,12 +145,12 @@ class SprintfFormatFloatTest extends BaseLinterTest
                 if (is_array($token) && $token[0] === T_STRING && $this->isFunction($token[1])) {
                     // we're starting a function!
                     $isInFunction = true;
-                    $function = array(
+                    $function = [
                         'name' => $token[1],
                         'type' => 'function',
                         'token' => $token,
-                        'args' => array()
-                    );
+                        'args' => [],
+                    ];
                 }
             }
         }
@@ -153,6 +159,7 @@ class SprintfFormatFloatTest extends BaseLinterTest
 
     /**
      * @param string $name
+     *
      * @return bool
      */
     protected function isFunction($name)

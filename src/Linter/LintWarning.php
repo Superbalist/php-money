@@ -1,11 +1,11 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 use Superbalist\Money\Linter\Tests\LinterTestInterface;
 
 class LintWarning
 {
-
     /**
      * @var int
      */
@@ -76,18 +76,20 @@ class LintWarning
      * @param string $source
      * @param int $number
      * @param LinterTestInterface $test
+     *
      * @return LintWarning
      */
     public static function make($source, $number, LinterTestInterface $test)
     {
         $line = self::getLineFromSource($source, $number);
         $snippet = self::getCodeSnippet($source, $number);
-        return new LintWarning($number, $line, $snippet, $test);
+        return new self($number, $line, $snippet, $test);
     }
 
     /**
      * @param string $source
      * @param int $number
+     *
      * @return string
      */
     protected static function getLineFromSource($source, $number)
@@ -104,6 +106,7 @@ class LintWarning
     /**
      * @param string $source
      * @param int $number
+     *
      * @return string
      */
     protected static function getCodeSnippet($source, $number)

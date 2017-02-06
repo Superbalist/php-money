@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 class SourceResult
 {
-
     /**
      * @var string
      */
@@ -12,12 +12,12 @@ class SourceResult
     /**
      * @var array
      */
-    protected $warnings = array();
+    protected $warnings = [];
 
     /**
      * @var array
      */
-    protected $timings = array();
+    protected $timings = [];
 
     /**
      * @param string $filename

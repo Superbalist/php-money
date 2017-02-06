@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money;
 
 class CurrencyConversionServiceProvider
 {
-
     /**
      * @var CurrencyConversionServiceInterface
      */

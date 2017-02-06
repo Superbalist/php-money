@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class FloatvalFunctionCallTest extends FunctionCallTest
 {
-
     /**
      * @return string
      */

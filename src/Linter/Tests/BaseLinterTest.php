@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 abstract class BaseLinterTest implements LinterTestInterface
 {
-
     /**
      * @return string
      */

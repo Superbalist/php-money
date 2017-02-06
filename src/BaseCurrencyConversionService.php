@@ -1,13 +1,14 @@
 <?php
+
 namespace Superbalist\Money;
 
 abstract class BaseCurrencyConversionService implements CurrencyConversionServiceInterface
 {
-
     /**
      * @param mixed $amount
      * @param Currency $from
      * @param Currency $to
+     *
      * @return string
      */
     public function convert($amount, Currency $from, Currency $to)
@@ -20,8 +21,10 @@ abstract class BaseCurrencyConversionService implements CurrencyConversionServic
     /**
      * @param Currency $from
      * @param Currency $to
-     * @return string
+     *
      * @throws \RuntimeException
+     *
+     * @return string
      */
     public function getConversionMultiplier(Currency $from, Currency $to)
     {
