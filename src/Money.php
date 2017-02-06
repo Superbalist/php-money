@@ -4,7 +4,7 @@ namespace Superbalist\Money;
 
 class Money
 {
-    public const DEFAULT_SCALE_FACTOR = 4;
+    const DEFAULT_SCALE_FACTOR = 4;
 
     /**
      * @var string
