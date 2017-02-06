@@ -1,11 +1,11 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 use Superbalist\Money\Linter\LintWarning;
 
 abstract class ContainsSimpleTokenTest extends BaseLinterTest
 {
-
     /**
      * @return string
      */
@@ -13,6 +13,7 @@ abstract class ContainsSimpleTokenTest extends BaseLinterTest
 
     /**
      * @param string $source
+     *
      * @return array
      */
     public function analyse($source)
@@ -20,7 +21,7 @@ abstract class ContainsSimpleTokenTest extends BaseLinterTest
         // simple tokens come back as strings and don't contain any line data
         // therefore, we keep track of line numbers separately and assume that if a simple token is found, it must
         // appear on the last recorded line numbers
-        $warnings = array();
+        $warnings = [];
         $tokens = token_get_all($source);
         $line = 1;
         foreach ($tokens as $token) {

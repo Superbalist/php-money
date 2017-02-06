@@ -1,10 +1,10 @@
 <?php
+
 namespace Superbalist\Money;
 
 class Money
 {
-
-    const DEFAULT_SCALE_FACTOR = 4;
+    public const DEFAULT_SCALE_FACTOR = 4;
 
     /**
      * @var string
@@ -69,11 +69,12 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return Money
      */
     public function add($money)
     {
-        if ($money instanceof Money) {
+        if ($money instanceof self) {
             $money = $this->getNormalisedMoney($money);
         }
         $amount = Utils::toStringAmount($money);
@@ -83,11 +84,12 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return Money
      */
     public function subtract($money)
     {
-        if ($money instanceof Money) {
+        if ($money instanceof self) {
             $money = $this->getNormalisedMoney($money);
         }
         $amount = Utils::toStringAmount($money);
@@ -97,6 +99,7 @@ class Money
 
     /**
      * @param Money|string|int|float $multiplier
+     *
      * @return Money
      */
     public function multiply($multiplier)
@@ -108,6 +111,7 @@ class Money
 
     /**
      * @param Money|string|int|float $divisor
+     *
      * @return Money
      */
     public function divide($divisor)
@@ -119,6 +123,7 @@ class Money
 
     /**
      * @param Money|string|int|float $modulus
+     *
      * @return string
      */
     public function mod($modulus)
@@ -129,11 +134,12 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return bool
      */
     public function equals($money)
     {
-        if ($money instanceof Money) {
+        if ($money instanceof self) {
             if (!$this->isSameCurrencyAs($money)) {
                 return false;
             }
@@ -143,12 +149,14 @@ class Money
 
     /**
      * @param Money|string|int|float $money
-     * @return int
+     *
      * @throws CurrencyMismatchException
+     *
+     * @return int
      */
     public function compare($money)
     {
-        if ($money instanceof Money) {
+        if ($money instanceof self) {
             if (!$this->isSameCurrencyAs($money)) {
                 throw new CurrencyMismatchException(
                     sprintf(
@@ -165,6 +173,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return bool
      */
     public function isGreaterThan($money)
@@ -174,6 +183,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return bool
      */
     public function isLessThan($money)
@@ -183,6 +193,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return bool
      */
     public function isGreaterThanOrEqualTo($money)
@@ -192,6 +203,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return bool
      */
     public function isLessThanOrEqualTo($money)
@@ -209,6 +221,7 @@ class Money
 
     /**
      * @param Money $money
+     *
      * @return bool
      */
     public function isSameCurrencyAs(Money $money)
@@ -258,18 +271,20 @@ class Money
 
     /**
      * @param Currency $currency
+     *
      * @return Money
      */
     public function toCurrency(Currency $currency)
     {
         $new = $this->currencyConversionService->convert($this->amount, $this->currency, $currency);
-        return new Money($new, $currency);
+        return new self($new, $currency);
     }
 
     /**
      * @param int $precision
      * @param string $decPoint
      * @param string $thousandsSep
+     *
      * @return string
      */
     public function format($precision = 2, $decPoint = '.', $thousandsSep = '')
@@ -285,6 +300,7 @@ class Money
 
     /**
      * @param int $precision
+     *
      * @return string
      */
     public function display($precision = 2)
@@ -321,6 +337,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return Money
      */
     public function min($money)
@@ -332,6 +349,7 @@ class Money
 
     /**
      * @param Money|string|int|float $money
+     *
      * @return Money
      */
     public function max($money)
@@ -353,6 +371,7 @@ class Money
     /**
      * @param int $precision
      * @param int $mode
+     *
      * @return Money
      */
     public function round($precision, $mode = PHP_ROUND_HALF_EVEN)
@@ -363,6 +382,7 @@ class Money
 
     /**
      * @param string $rate
+     *
      * @return Money
      */
     public function calculateVat($rate = '0.14')
@@ -373,6 +393,7 @@ class Money
 
     /**
      * @param string $rate
+     *
      * @return Money
      */
     public function calculateNetVatAmount($rate = '0.14')
@@ -430,6 +451,7 @@ class Money
      * Returns the given money in the same currency as the current instance.
      *
      * @param Money $money
+     *
      * @return Money
      */
     protected function getNormalisedMoney(Money $money)

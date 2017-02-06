@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class ArraySumFunctionCallTest extends FunctionCallTest
 {
-
     /**
      * @return string
      */

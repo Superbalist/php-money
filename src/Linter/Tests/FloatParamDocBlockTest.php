@@ -1,18 +1,18 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class FloatParamDocBlockTest extends PHPDocBlockTest
 {
-
     /**
      * @return array
      */
     protected function getAnnotationCriteria()
     {
-        return array(
+        return [
             'annotation' => 'param',
-            'type' => 'float'
-        );
+            'type' => 'float',
+        ];
     }
 
     /**

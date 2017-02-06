@@ -2,7 +2,6 @@
 
 class CurrencyTests extends PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */
@@ -93,7 +92,7 @@ class CurrencyTests extends PHPUnit_Framework_TestCase
     public function testToString()
     {
         $currency = \Superbalist\Money\CurrencyFactory::make('ZAR');
-        $str = (string)$currency;
+        $str = (string) $currency;
         $this->assertSame('ZAR', $str);
     }
 }

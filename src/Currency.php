@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money;
 
 class Currency
 {
-
     /**
      * @var string
      */
@@ -72,6 +72,7 @@ class Currency
 
     /**
      * @param Currency $currency
+     *
      * @return bool
      */
     public function equals(Currency $currency)
@@ -82,6 +83,7 @@ class Currency
     /**
      * @param Money|string|int|float $amount
      * @param int $precision
+     *
      * @return string
      */
     public function display($amount, $precision = 2)

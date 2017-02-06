@@ -2,7 +2,6 @@
 
 class CurrencyConversionTests extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @return \Superbalist\Money\MockCurrencyConversionService
      */

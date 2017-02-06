@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 class FileIndex
 {
-
     /**
      * @var array
      */
@@ -27,6 +27,7 @@ class FileIndex
 
     /**
      * @param string $dir
+     *
      * @return FileIndex
      */
     public static function make($dir)
@@ -34,7 +35,7 @@ class FileIndex
         $dirIterator = new \RecursiveDirectoryIterator($dir);
         $dirIterator->setFlags(\RecursiveDirectoryIterator::SKIP_DOTS);
         $recursiveIterator = new \RecursiveIteratorIterator($dirIterator, \RecursiveIteratorIterator::SELF_FIRST);
-        $results = array();
+        $results = [];
         foreach ($recursiveIterator as $file) {
             /** @var \SplFileInfo $file */
             // ignore non files

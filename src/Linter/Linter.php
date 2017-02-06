@@ -1,24 +1,25 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 class Linter
 {
-
     /**
      * @var array
      */
-    protected $tests = array();
+    protected $tests = [];
 
     /**
      * @param array $tests
      */
-    public function __construct(array $tests = array())
+    public function __construct(array $tests = [])
     {
         $this->tests = count($tests) > 0 ? $tests : TestFactory::makeAll();
     }
 
     /**
      * @param string $dir
+     *
      * @return IndexResult
      */
     public function lintDir($dir)
@@ -36,6 +37,7 @@ class Linter
 
     /**
      * @param string $filename
+     *
      * @return SourceResult
      */
     public function lintFile($filename)
@@ -47,12 +49,13 @@ class Linter
     /**
      * @param string $source
      * @param string $filename
+     *
      * @return SourceResult
      */
     public function lintSource($source, $filename = null)
     {
         $result = new SourceResult($filename);
-        $timings = array();
+        $timings = [];
         foreach ($this->tests as $test) {
             /** @var \Superbalist\Money\Linter\Tests\LinterTestInterface $test */
             $start = microtime(true);

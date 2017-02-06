@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 class FileSuppressionIndex implements SuppressionIndexInterface
 {
-
     /**
      * @var array
      */
@@ -22,6 +22,7 @@ class FileSuppressionIndex implements SuppressionIndexInterface
      * @param string $filename
      * @param int $number
      * @param string $line
+     *
      * @return bool
      */
     public function isSuppressed($filename, $number, $line)
@@ -38,11 +39,11 @@ class FileSuppressionIndex implements SuppressionIndexInterface
     public function add($filename, $number, $line)
     {
         $hash = $this->generateSuppressionHash($filename, $number, $line);
-        $this->index[$hash] = array(
+        $this->index[$hash] = [
             'filename' => $filename,
             'number' => $number,
-            'line' => $line
-        );
+            'line' => $line,
+        ];
         $this->save();
     }
 
@@ -50,6 +51,7 @@ class FileSuppressionIndex implements SuppressionIndexInterface
      * @param string $filename
      * @param int $number
      * @param string $line
+     *
      * @return string
      */
     protected function generateSuppressionHash($filename, $number, $line)
@@ -62,7 +64,7 @@ class FileSuppressionIndex implements SuppressionIndexInterface
      */
     public function wipe()
     {
-        $this->index = array();
+        $this->index = [];
         $this->save();
     }
 
@@ -75,7 +77,7 @@ class FileSuppressionIndex implements SuppressionIndexInterface
             $content = file_get_contents($this->filename);
             $this->index = unserialize($content);
         } else {
-            $this->index = array();
+            $this->index = [];
         }
     }
 

@@ -1,18 +1,18 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class IntParamDocBlockTest extends PHPDocBlockTest
 {
-
     /**
      * @return array
      */
     protected function getAnnotationCriteria()
     {
-        return array(
+        return [
             'annotation' => 'param',
-            'type' => 'int'
-        );
+            'type' => 'int',
+        ];
     }
 
     /**

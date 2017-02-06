@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class IsNumericFunctionCallTest extends FunctionCallTest
 {
-
     /**
      * @return string
      */

@@ -2,7 +2,6 @@
 
 class UtilsTests extends PHPUnit_Framework_TestCase
 {
-
     /**
      * @param mixed $value
      * @param string $expectedValue
@@ -19,20 +18,20 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function convertToStringAmountProvider()
     {
-        return array(
-            array(0, '0'),
-            array('3', '3'),
-            array('3.0', '3'),
-            array(0.01, '0.01'),
-            array(-15.38294, '-15.38294'),
-            array(6, '6'),
-            array(new \Superbalist\Money\Money('3.54'), '3.54'),
-            array(new \Superbalist\Money\Money(3.54), '3.54'),
-            array(new \Superbalist\Money\Money(3.50), '3.5'),
-            array('4.3286183', '4.3286183'),
-            array('4.32', '4.32'),
-            array(0.0999999999999, '0.0999999999999'),
-        );
+        return [
+            [0, '0'],
+            ['3', '3'],
+            ['3.0', '3'],
+            [0.01, '0.01'],
+            [-15.38294, '-15.38294'],
+            [6, '6'],
+            [new \Superbalist\Money\Money('3.54'), '3.54'],
+            [new \Superbalist\Money\Money(3.54), '3.54'],
+            [new \Superbalist\Money\Money(3.50), '3.5'],
+            ['4.3286183', '4.3286183'],
+            ['4.32', '4.32'],
+            [0.0999999999999, '0.0999999999999'],
+        ];
     }
 
     /**
@@ -50,20 +49,20 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function isZeroProvider()
     {
-        return array(
-            array('0', true),
-            array('-0', true),
-            array('-0.0', true),
-            array('-0.0000', true),
-            array('0.0', true),
-            array('0.000', true),
-            array('100', false),
-            array('-100', false),
-            array('-0.1', false),
-            array('-0.001', false),
-            array('0.001', false),
-            array('0.000001', false),
-        );
+        return [
+            ['0', true],
+            ['-0', true],
+            ['-0.0', true],
+            ['-0.0000', true],
+            ['0.0', true],
+            ['0.000', true],
+            ['100', false],
+            ['-100', false],
+            ['-0.1', false],
+            ['-0.001', false],
+            ['0.001', false],
+            ['0.000001', false],
+        ];
     }
 
     /**
@@ -82,25 +81,25 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function ceilProvider()
     {
-        return array(
-            array(4.3, '5'),
-            array(9.999, '10'),
-            array(-3.14, '-3'),
-            array(4, '4'),
-            array(3.00000, '3'),
-            array(1.5, '2'),
-            array(1.51, '2'),
-            array('1.499', '2'),
-            array('-31.01', '-31'),
-            array('-9.87', '-9'),
-            array('-0.01', '0'),
-            array('-0.001', '0'),
-            array('-1', '-1'),
-            array('0', '0'),
-            array('1', '1'),
-            array('-0', '0'),
-            array('-0', '0'),
-        );
+        return [
+            [4.3, '5'],
+            [9.999, '10'],
+            [-3.14, '-3'],
+            [4, '4'],
+            [3.00000, '3'],
+            [1.5, '2'],
+            [1.51, '2'],
+            ['1.499', '2'],
+            ['-31.01', '-31'],
+            ['-9.87', '-9'],
+            ['-0.01', '0'],
+            ['-0.001', '0'],
+            ['-1', '-1'],
+            ['0', '0'],
+            ['1', '1'],
+            ['-0', '0'],
+            ['-0', '0'],
+        ];
     }
 
     /**
@@ -119,22 +118,22 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function floorProvider()
     {
-        return array(
-            array(4.3, '4'),
-            array(9.999, '9'),
-            array(-3.14, '-4'),
-            array(4, '4'),
-            array(3.00000, '3'),
-            array(2.15, '2'),
-            array(4.455, '4'),
-            array('-9.87', '-10'),
-            array('-0.01', '-1'),
-            array('-0.001', '-1'),
-            array('-1', '-1'),
-            array('0', '0'),
-            array('1', '1'),
-            array('-0', '0'),
-        );
+        return [
+            [4.3, '4'],
+            [9.999, '9'],
+            [-3.14, '-4'],
+            [4, '4'],
+            [3.00000, '3'],
+            [2.15, '2'],
+            [4.455, '4'],
+            ['-9.87', '-10'],
+            ['-0.01', '-1'],
+            ['-0.001', '-1'],
+            ['-1', '-1'],
+            ['0', '0'],
+            ['1', '1'],
+            ['-0', '0'],
+        ];
     }
 
     /**
@@ -152,14 +151,14 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function absProvider()
     {
-        return array(
-            array(0, '0'),
-            array('3', '3'),
-            array('-3', '3'),
-            array('-0', '0'),
-            array(-27.22, '27.22'),
-            array('-3.2861942', '3.2861'),
-        );
+        return [
+            [0, '0'],
+            ['3', '3'],
+            ['-3', '3'],
+            ['-0', '0'],
+            [-27.22, '27.22'],
+            ['-3.2861942', '3.2861'],
+        ];
     }
 
     /**
@@ -184,15 +183,15 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function testMinArray()
     {
-        $values = array(
+        $values = [
             '10.00',
             9.99,
             new \Superbalist\Money\Money('3.26'),
             '-4.6594',
             '-4.6595',
             '0.11',
-            '0'
-        );
+            '0',
+        ];
         $this->assertSame('-4.6595', \Superbalist\Money\Utils::min($values));
     }
 
@@ -219,7 +218,7 @@ class UtilsTests extends PHPUnit_Framework_TestCase
      */
     public function testMaxArray()
     {
-        $values = array(
+        $values = [
             '10.00',
             '10.01',
             9.99,
@@ -227,8 +226,8 @@ class UtilsTests extends PHPUnit_Framework_TestCase
             '-4.6594',
             '-4.6595',
             '0.11',
-            '0'
-        );
+            '0',
+        ];
         $this->assertSame('10.01', \Superbalist\Money\Utils::max($values));
     }
 

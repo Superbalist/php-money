@@ -1,4 +1,5 @@
 <?php
+
 namespace Superbalist\Money\Linter;
 
 use Superbalist\Money\Linter\Tests\AbsFunctionCallTest;
@@ -47,13 +48,12 @@ use Superbalist\Money\Linter\Tests\VariableTimesEqualsTest;
 
 class TestFactory
 {
-
     /**
      * @return array
      */
     public static function makeAll()
     {
-        return array(
+        return [
             new AbsFunctionCallTest(),
             new ArraySumFunctionCallTest(),
             new CeilFunctionCallTest(),
@@ -97,13 +97,15 @@ class TestFactory
             new VariableModEqualsTest(),
             new VariablePlusEqualsTest(),
             new VariableTimesEqualsTest(),
-        );
+        ];
     }
 
     /**
      * @param string $name
-     * @return Tests\LinterTestInterface
+     *
      * @throws \RuntimeException
+     *
+     * @return Tests\LinterTestInterface
      */
     public static function make($name)
     {
@@ -119,11 +121,12 @@ class TestFactory
 
     /**
      * @param array $names
+     *
      * @return array
      */
     public static function makeFrom(array $names)
     {
-        $matched = array();
+        $matched = [];
         $tests = self::makeAll();
         foreach ($names as $name) {
             foreach ($tests as $test) {

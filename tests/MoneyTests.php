@@ -2,7 +2,6 @@
 
 class MoneyTests extends PHPUnit_Framework_TestCase
 {
-
     /**
      *
      */
@@ -43,23 +42,23 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function addProvider()
     {
-        return array(
-            array('10', '3', '13'),
-            array('10.35', '2', '12.35'),
-            array(5.35, '35.50', '40.85'),
-            array(6.9214, 23.3345, '30.2559'),
-            array(3, 1, '4'),
-            array(3, 6.33, '9.33'),
-            array(56, '3', '59'),
-            array(0.1, 0.2, '0.3'),
-            array(0.15, 0.3333, '0.4833'),
-            array(0.153, '0.3331', '0.4861'),
-            array('0.1', '0.2', '0.3'),
-            array('0.1', '-0.2', '-0.1'),
-            array(0.1334, -3.2165, '-3.0831'),
-            array(new \Superbalist\Money\Money('3.5'), new \Superbalist\Money\Money('2.1'), '5.6'),
-            array(new \Superbalist\Money\Money('1.1'), 3, '4.1'),
-        );
+        return [
+            ['10', '3', '13'],
+            ['10.35', '2', '12.35'],
+            [5.35, '35.50', '40.85'],
+            [6.9214, 23.3345, '30.2559'],
+            [3, 1, '4'],
+            [3, 6.33, '9.33'],
+            [56, '3', '59'],
+            [0.1, 0.2, '0.3'],
+            [0.15, 0.3333, '0.4833'],
+            [0.153, '0.3331', '0.4861'],
+            ['0.1', '0.2', '0.3'],
+            ['0.1', '-0.2', '-0.1'],
+            [0.1334, -3.2165, '-3.0831'],
+            [new \Superbalist\Money\Money('3.5'), new \Superbalist\Money\Money('2.1'), '5.6'],
+            [new \Superbalist\Money\Money('1.1'), 3, '4.1'],
+        ];
     }
 
     /**
@@ -102,21 +101,21 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function subtractProvider()
     {
-        return array(
-            array('10', '3', '7'),
-            array('10.35', '2', '8.35'),
-            array(35.50, '5.35', '30.15'),
-            array(23.3345, 6.9214, '16.4131'),
-            array(3, 1, '2'),
-            array(3, 6.33, '-3.33'),
-            array(56, '3', '53'),
-            array(0.2, 0.1, '0.1'),
-            array(0.15, 0.3333, '-0.1833'),
-            array(0.3331, '0.153', '0.1801'),
-            array('0.2', '0.1', '0.1'),
-            array('0.1', '-0.2', '0.3'),
-            array(0.1334, -3.2165, '3.3499'),
-        );
+        return [
+            ['10', '3', '7'],
+            ['10.35', '2', '8.35'],
+            [35.50, '5.35', '30.15'],
+            [23.3345, 6.9214, '16.4131'],
+            [3, 1, '2'],
+            [3, 6.33, '-3.33'],
+            [56, '3', '53'],
+            [0.2, 0.1, '0.1'],
+            [0.15, 0.3333, '-0.1833'],
+            [0.3331, '0.153', '0.1801'],
+            ['0.2', '0.1', '0.1'],
+            ['0.1', '-0.2', '0.3'],
+            [0.1334, -3.2165, '3.3499'],
+        ];
     }
 
     /**
@@ -138,17 +137,17 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function multiplyProvider()
     {
-        return array(
-            array(1, 3, '3'),
-            array(0, 9, '0'),
-            array(3.3, 4, '13.2'),
-            array('4.612', 2.46, '11.34552'),
-            array('0.156', '0.825482', '0.128775192'),
-            array('0.156', '0.825482', '0.128775192'),
-            array(-6.13, '0.2', '-1.226'),
-            array('-8.4', '-3.652', '30.6768'),
-            array(new \Superbalist\Money\Money('-8.4'), new \Superbalist\Money\Money('-3.652'), '30.6768'),
-        );
+        return [
+            [1, 3, '3'],
+            [0, 9, '0'],
+            [3.3, 4, '13.2'],
+            ['4.612', 2.46, '11.34552'],
+            ['0.156', '0.825482', '0.128775192'],
+            ['0.156', '0.825482', '0.128775192'],
+            [-6.13, '0.2', '-1.226'],
+            ['-8.4', '-3.652', '30.6768'],
+            [new \Superbalist\Money\Money('-8.4'), new \Superbalist\Money\Money('-3.652'), '30.6768'],
+        ];
     }
 
     /**
@@ -170,14 +169,14 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function divideProvider()
     {
-        return array(
-            array(0, 1, '0'),
-            array(3.5, 1.2, '2.91666666667'),
-            array('6.81523', '-5.184', '-1.31466628086'),
-            array(1, 3, '0.33333333333'),
-            array('-5.872', '-0.2251', '26.0861839183'),
-            array(new \Superbalist\Money\Money('-5.872'), new \Superbalist\Money\Money('-0.2251'), '26.0861839183'),
-        );
+        return [
+            [0, 1, '0'],
+            [3.5, 1.2, '2.91666666667'],
+            ['6.81523', '-5.184', '-1.31466628086'],
+            [1, 3, '0.33333333333'],
+            ['-5.872', '-0.2251', '26.0861839183'],
+            [new \Superbalist\Money\Money('-5.872'), new \Superbalist\Money\Money('-0.2251'), '26.0861839183'],
+        ];
     }
 
     /**
@@ -199,12 +198,12 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function modProvider()
     {
-        return array(
-            array('6', '2', '0'),
-            array('6', '3', '0'),
-            array('6', '4', '2'),
-            array('6', '5', '1'),
-        );
+        return [
+            ['6', '2', '0'],
+            ['6', '3', '0'],
+            ['6', '4', '2'],
+            ['6', '5', '1'],
+        ];
     }
 
     /**
@@ -226,22 +225,22 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isEqualsProvider()
     {
-        return array(
-            array('1', '1', true),
-            array('0.333333333', '0.3333', true),
-            array('0.333333333', '0.33', false),
-            array('0.369', 0.369, true),
-            array(2.155555, 2.155555, true),
-            array(2.155555, '2.155555', true),
-            array(0, 0, true),
-            array(0, 0.0, true),
-            array(0, 0.00, true),
-            array(0, '0.00', true),
-            array(-0, 0, true),
-            array('-0', '0', true),
-            array('-0.18265', '-0.1826', true),
-            array('-0.18265', '-0.1827', false),
-        );
+        return [
+            ['1', '1', true],
+            ['0.333333333', '0.3333', true],
+            ['0.333333333', '0.33', false],
+            ['0.369', 0.369, true],
+            [2.155555, 2.155555, true],
+            [2.155555, '2.155555', true],
+            [0, 0, true],
+            [0, 0.0, true],
+            [0, 0.00, true],
+            [0, '0.00', true],
+            [-0, 0, true],
+            ['-0', '0', true],
+            ['-0.18265', '-0.1826', true],
+            ['-0.18265', '-0.1827', false],
+        ];
     }
 
     /**
@@ -263,17 +262,17 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function compareProvider()
     {
-        return array(
-            array(1, 1, 0),
-            array(3, 1, 1),
-            array(0.3, 0.1, 1),
-            array(0.1, 0.3, -1),
-            array(0, -0, 0),
-            array('3.1567', '3.1567', 0),
-            array('3.1567', '3.1566', 1),
-            array('3.1567', '3.1568', -1),
-            array('3.15677', '3.15676', 0),
-        );
+        return [
+            [1, 1, 0],
+            [3, 1, 1],
+            [0.3, 0.1, 1],
+            [0.1, 0.3, -1],
+            [0, -0, 0],
+            ['3.1567', '3.1567', 0],
+            ['3.1567', '3.1566', 1],
+            ['3.1567', '3.1568', -1],
+            ['3.15677', '3.15676', 0],
+        ];
     }
 
     /**
@@ -306,13 +305,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isGreaterThanProvider()
     {
-        return array(
-            array(0, 1, false),
-            array('1.56788', '1.56787', false),
-            array('1.5678', '1.5677', true),
-            array('1.5678', '1.5678', false),
-            array('-1.5678', '0', false),
-        );
+        return [
+            [0, 1, false],
+            ['1.56788', '1.56787', false],
+            ['1.5678', '1.5677', true],
+            ['1.5678', '1.5678', false],
+            ['-1.5678', '0', false],
+        ];
     }
 
     /**
@@ -334,13 +333,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isLessThanProvider()
     {
-        return array(
-            array(0, 1, true),
-            array('1.56788', '1.56787', false),
-            array('1.5678', '1.5677', false),
-            array('1.5678', '1.5678', false),
-            array('-1.5678', '0', true),
-        );
+        return [
+            [0, 1, true],
+            ['1.56788', '1.56787', false],
+            ['1.5678', '1.5677', false],
+            ['1.5678', '1.5678', false],
+            ['-1.5678', '0', true],
+        ];
     }
 
     /**
@@ -362,13 +361,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isGreaterThanOrEqualToProvider()
     {
-        return array(
-            array(0, 1, false),
-            array('1.56788', '1.56787', true),
-            array('1.5678', '1.5677', true),
-            array('1.5678', '1.5678', true),
-            array('-1.5678', '0', false),
-        );
+        return [
+            [0, 1, false],
+            ['1.56788', '1.56787', true],
+            ['1.5678', '1.5677', true],
+            ['1.5678', '1.5678', true],
+            ['-1.5678', '0', false],
+        ];
     }
 
     /**
@@ -390,13 +389,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isLessThanOrEqualToProvider()
     {
-        return array(
-            array(0, 1, true),
-            array('1.56788', '1.56787', true),
-            array('1.5678', '1.5677', false),
-            array('1.5678', '1.5678', true),
-            array('-1.5678', '0', true),
-        );
+        return [
+            [0, 1, true],
+            ['1.56788', '1.56787', true],
+            ['1.5678', '1.5677', false],
+            ['1.5678', '1.5678', true],
+            ['-1.5678', '0', true],
+        ];
     }
 
     /**
@@ -432,13 +431,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isPositiveProvider()
     {
-        return array(
-            array('1', true),
-            array('0', true),
-            array('0.015', true),
-            array('-3', false),
-            array('-0.002', false),
-        );
+        return [
+            ['1', true],
+            ['0', true],
+            ['0.015', true],
+            ['-3', false],
+            ['-0.002', false],
+        ];
     }
 
     /**
@@ -458,13 +457,13 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isNegativeProvider()
     {
-        return array(
-            array('1', false),
-            array('0', false),
-            array('0.015', false),
-            array('-3', true),
-            array('-0.002', true),
-        );
+        return [
+            ['1', false],
+            ['0', false],
+            ['0.015', false],
+            ['-3', true],
+            ['-0.002', true],
+        ];
     }
 
     /**
@@ -483,22 +482,22 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isZeroProvider()
     {
-        return array(
-            array('0', true),
-            array('-0', true),
-            array('-0.0', true),
-            array('-0.0000', true),
-            array('0.0', true),
-            array('0.000', true),
-            array('100', false),
-            array('-100', false),
-            array('-0.1', false),
-            array('-0.001', false),
-            array('0.001', false),
-            array('0.0001', false),
-            array('0.00001', true),
-            array('0.000001', true),
-        );
+        return [
+            ['0', true],
+            ['-0', true],
+            ['-0.0', true],
+            ['-0.0000', true],
+            ['0.0', true],
+            ['0.000', true],
+            ['100', false],
+            ['-100', false],
+            ['-0.1', false],
+            ['-0.001', false],
+            ['0.001', false],
+            ['0.0001', false],
+            ['0.00001', true],
+            ['0.000001', true],
+        ];
     }
 
     /**
@@ -517,15 +516,15 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isEvenProvider()
     {
-        return array(
-            array('-1', false),
-            array('0', true),
-            array('1', false),
-            array('2', true),
-            array('3', false),
-            array('4', true),
-            array('5', false),
-        );
+        return [
+            ['-1', false],
+            ['0', true],
+            ['1', false],
+            ['2', true],
+            ['3', false],
+            ['4', true],
+            ['5', false],
+        ];
     }
 
     /**
@@ -544,15 +543,15 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function isOddProvider()
     {
-        return array(
-            array('-1', true),
-            array('0', false),
-            array('1', true),
-            array('2', false),
-            array('3', true),
-            array('4', false),
-            array('5', true),
-        );
+        return [
+            ['-1', true],
+            ['0', false],
+            ['1', true],
+            ['2', false],
+            ['3', true],
+            ['4', false],
+            ['5', true],
+        ];
     }
 
     /**
@@ -676,12 +675,16 @@ class MoneyTests extends PHPUnit_Framework_TestCase
     public function testToString()
     {
         $money = new \Superbalist\Money\Money('10.35');
-        $str = (string)$money;
+        $str = (string) $money;
         $this->assertSame('10.35', $str);
     }
 
     /**
      * @dataProvider testRoundProvider
+     * @param mixed $value
+     * @param mixed $precision
+     * @param mixed $mode
+     * @param mixed $expectedValue
      */
     public function testRound($value, $precision, $mode, $expectedValue)
     {
@@ -694,153 +697,152 @@ class MoneyTests extends PHPUnit_Framework_TestCase
      */
     public function testRoundProvider()
     {
-        return array(
-
+        return [
             // PHP_ROUND_HALF_UP
 
             // 0 precision
-            array('0', 0, PHP_ROUND_HALF_UP, '0'),
-            array('0.0', 0, PHP_ROUND_HALF_UP, '0'),
-            array('1', 0, PHP_ROUND_HALF_UP, '1'),
-            array('1.5', 0, PHP_ROUND_HALF_UP, '2'),
-            array('1.6', 0, PHP_ROUND_HALF_UP, '2'),
-            array('1.49', 0, PHP_ROUND_HALF_UP, '1'),
-            array('1.995', 0, PHP_ROUND_HALF_UP, '2'),
-            array('0.6', 0, PHP_ROUND_HALF_UP, '1'),
+            ['0', 0, PHP_ROUND_HALF_UP, '0'],
+            ['0.0', 0, PHP_ROUND_HALF_UP, '0'],
+            ['1', 0, PHP_ROUND_HALF_UP, '1'],
+            ['1.5', 0, PHP_ROUND_HALF_UP, '2'],
+            ['1.6', 0, PHP_ROUND_HALF_UP, '2'],
+            ['1.49', 0, PHP_ROUND_HALF_UP, '1'],
+            ['1.995', 0, PHP_ROUND_HALF_UP, '2'],
+            ['0.6', 0, PHP_ROUND_HALF_UP, '1'],
             // 2 precision
-            array('1.58', 2, PHP_ROUND_HALF_UP, '1.58'),
-            array('1.589', 2, PHP_ROUND_HALF_UP, '1.59'),
-            array('1.599', 2, PHP_ROUND_HALF_UP, '1.6'),
-            array('1.3', 2, PHP_ROUND_HALF_UP, '1.3'),
-            array('1.495', 2, PHP_ROUND_HALF_UP, '1.5'),
-            array('1.4949', 2, PHP_ROUND_HALF_UP, '1.49'),
-            array('1.4958', 2, PHP_ROUND_HALF_UP, '1.5'),
+            ['1.58', 2, PHP_ROUND_HALF_UP, '1.58'],
+            ['1.589', 2, PHP_ROUND_HALF_UP, '1.59'],
+            ['1.599', 2, PHP_ROUND_HALF_UP, '1.6'],
+            ['1.3', 2, PHP_ROUND_HALF_UP, '1.3'],
+            ['1.495', 2, PHP_ROUND_HALF_UP, '1.5'],
+            ['1.4949', 2, PHP_ROUND_HALF_UP, '1.49'],
+            ['1.4958', 2, PHP_ROUND_HALF_UP, '1.5'],
             // negative - 0 precision
-            array('-0', 0, PHP_ROUND_HALF_UP, '0'),
-            array('-0.0', 0, PHP_ROUND_HALF_UP, '0'),
-            array('-1', 0, PHP_ROUND_HALF_UP, '-1'),
-            array('-1.5', 0, PHP_ROUND_HALF_UP, '-2'),
-            array('-1.6', 0, PHP_ROUND_HALF_UP, '-2'),
-            array('-1.49', 0, PHP_ROUND_HALF_UP, '-1'),
-            array('-1.995', 0, PHP_ROUND_HALF_UP, '-2'),
-            array('-0.6', 0, PHP_ROUND_HALF_UP, '-1'),
+            ['-0', 0, PHP_ROUND_HALF_UP, '0'],
+            ['-0.0', 0, PHP_ROUND_HALF_UP, '0'],
+            ['-1', 0, PHP_ROUND_HALF_UP, '-1'],
+            ['-1.5', 0, PHP_ROUND_HALF_UP, '-2'],
+            ['-1.6', 0, PHP_ROUND_HALF_UP, '-2'],
+            ['-1.49', 0, PHP_ROUND_HALF_UP, '-1'],
+            ['-1.995', 0, PHP_ROUND_HALF_UP, '-2'],
+            ['-0.6', 0, PHP_ROUND_HALF_UP, '-1'],
             // negative - 2 precision
-            array('-1.58', 2, PHP_ROUND_HALF_UP, '-1.58'),
-            array('-1.589', 2, PHP_ROUND_HALF_UP, '-1.59'),
-            array('-1.599', 2, PHP_ROUND_HALF_UP, '-1.6'),
-            array('-1.3', 2, PHP_ROUND_HALF_UP, '-1.3'),
-            array('-1.495', 2, PHP_ROUND_HALF_UP, '-1.5'),
-            array('-1.4949', 2, PHP_ROUND_HALF_UP, '-1.49'),
-            array('-1.4958', 2, PHP_ROUND_HALF_UP, '-1.5'),
+            ['-1.58', 2, PHP_ROUND_HALF_UP, '-1.58'],
+            ['-1.589', 2, PHP_ROUND_HALF_UP, '-1.59'],
+            ['-1.599', 2, PHP_ROUND_HALF_UP, '-1.6'],
+            ['-1.3', 2, PHP_ROUND_HALF_UP, '-1.3'],
+            ['-1.495', 2, PHP_ROUND_HALF_UP, '-1.5'],
+            ['-1.4949', 2, PHP_ROUND_HALF_UP, '-1.49'],
+            ['-1.4958', 2, PHP_ROUND_HALF_UP, '-1.5'],
             // PHP_ROUND_HALF_DOWN
 
             // 0 precision
-            array('0', 0, PHP_ROUND_HALF_DOWN, '0'),
-            array('0.0', 0, PHP_ROUND_HALF_DOWN, '0'),
-            array('1', 0, PHP_ROUND_HALF_DOWN, '1'),
-            array('1.5', 0, PHP_ROUND_HALF_DOWN, '1'),
-            array('1.6', 0, PHP_ROUND_HALF_DOWN, '2'),
-            array('1.49', 0, PHP_ROUND_HALF_DOWN, '1'),
-            array('1.995', 0, PHP_ROUND_HALF_DOWN, '2'),
-            array('0.6', 0, PHP_ROUND_HALF_DOWN, '1'),
+            ['0', 0, PHP_ROUND_HALF_DOWN, '0'],
+            ['0.0', 0, PHP_ROUND_HALF_DOWN, '0'],
+            ['1', 0, PHP_ROUND_HALF_DOWN, '1'],
+            ['1.5', 0, PHP_ROUND_HALF_DOWN, '1'],
+            ['1.6', 0, PHP_ROUND_HALF_DOWN, '2'],
+            ['1.49', 0, PHP_ROUND_HALF_DOWN, '1'],
+            ['1.995', 0, PHP_ROUND_HALF_DOWN, '2'],
+            ['0.6', 0, PHP_ROUND_HALF_DOWN, '1'],
             // 2 precision
-            array('1.58', 2, PHP_ROUND_HALF_DOWN, '1.58'),
-            array('1.589', 2, PHP_ROUND_HALF_DOWN, '1.59'),
-            array('1.599', 2, PHP_ROUND_HALF_DOWN, '1.6'),
-            array('1.3', 2, PHP_ROUND_HALF_DOWN, '1.3'),
-            array('1.495', 2, PHP_ROUND_HALF_DOWN, '1.49'),
-            array('1.4949', 2, PHP_ROUND_HALF_DOWN, '1.49'),
-            array('1.4958', 2, PHP_ROUND_HALF_DOWN, '1.5'),
+            ['1.58', 2, PHP_ROUND_HALF_DOWN, '1.58'],
+            ['1.589', 2, PHP_ROUND_HALF_DOWN, '1.59'],
+            ['1.599', 2, PHP_ROUND_HALF_DOWN, '1.6'],
+            ['1.3', 2, PHP_ROUND_HALF_DOWN, '1.3'],
+            ['1.495', 2, PHP_ROUND_HALF_DOWN, '1.49'],
+            ['1.4949', 2, PHP_ROUND_HALF_DOWN, '1.49'],
+            ['1.4958', 2, PHP_ROUND_HALF_DOWN, '1.5'],
             // negative - 0 precision
-            array('-0', 0, PHP_ROUND_HALF_DOWN, '0'),
-            array('-0.0', 0, PHP_ROUND_HALF_DOWN, '0'),
-            array('-1', 0, PHP_ROUND_HALF_DOWN, '-1'),
-            array('-1.5', 0, PHP_ROUND_HALF_DOWN, '-1'),
-            array('-1.6', 0, PHP_ROUND_HALF_DOWN, '-2'),
-            array('-1.49', 0, PHP_ROUND_HALF_DOWN, '-1'),
-            array('-1.995', 0, PHP_ROUND_HALF_DOWN, '-2'),
-            array('-0.6', 0, PHP_ROUND_HALF_DOWN, '-1'),
+            ['-0', 0, PHP_ROUND_HALF_DOWN, '0'],
+            ['-0.0', 0, PHP_ROUND_HALF_DOWN, '0'],
+            ['-1', 0, PHP_ROUND_HALF_DOWN, '-1'],
+            ['-1.5', 0, PHP_ROUND_HALF_DOWN, '-1'],
+            ['-1.6', 0, PHP_ROUND_HALF_DOWN, '-2'],
+            ['-1.49', 0, PHP_ROUND_HALF_DOWN, '-1'],
+            ['-1.995', 0, PHP_ROUND_HALF_DOWN, '-2'],
+            ['-0.6', 0, PHP_ROUND_HALF_DOWN, '-1'],
             // negative - 2 precision
-            array('-1.58', 2, PHP_ROUND_HALF_DOWN, '-1.58'),
-            array('-1.589', 2, PHP_ROUND_HALF_DOWN, '-1.59'),
-            array('-1.599', 2, PHP_ROUND_HALF_DOWN, '-1.6'),
-            array('-1.3', 2, PHP_ROUND_HALF_DOWN, '-1.3'),
-            array('-1.495', 2, PHP_ROUND_HALF_DOWN, '-1.49'),
-            array('-1.4949', 2, PHP_ROUND_HALF_DOWN, '-1.49'),
-            array('-1.4958', 2, PHP_ROUND_HALF_DOWN, '-1.5'),
+            ['-1.58', 2, PHP_ROUND_HALF_DOWN, '-1.58'],
+            ['-1.589', 2, PHP_ROUND_HALF_DOWN, '-1.59'],
+            ['-1.599', 2, PHP_ROUND_HALF_DOWN, '-1.6'],
+            ['-1.3', 2, PHP_ROUND_HALF_DOWN, '-1.3'],
+            ['-1.495', 2, PHP_ROUND_HALF_DOWN, '-1.49'],
+            ['-1.4949', 2, PHP_ROUND_HALF_DOWN, '-1.49'],
+            ['-1.4958', 2, PHP_ROUND_HALF_DOWN, '-1.5'],
             // PHP_ROUND_HALF_EVEN
 
             // 0 precision
-            array('0', 0, PHP_ROUND_HALF_EVEN, '0'),
-            array('0.0', 0, PHP_ROUND_HALF_EVEN, '0'),
-            array('1', 0, PHP_ROUND_HALF_EVEN, '1'),
-            array('1.5', 0, PHP_ROUND_HALF_EVEN, '2'),
-            array('1.6', 0, PHP_ROUND_HALF_EVEN, '2'),
-            array('1.49', 0, PHP_ROUND_HALF_EVEN, '1'),
-            array('1.995', 0, PHP_ROUND_HALF_EVEN, '2'),
-            array('0.6', 0, PHP_ROUND_HALF_EVEN, '1'),
+            ['0', 0, PHP_ROUND_HALF_EVEN, '0'],
+            ['0.0', 0, PHP_ROUND_HALF_EVEN, '0'],
+            ['1', 0, PHP_ROUND_HALF_EVEN, '1'],
+            ['1.5', 0, PHP_ROUND_HALF_EVEN, '2'],
+            ['1.6', 0, PHP_ROUND_HALF_EVEN, '2'],
+            ['1.49', 0, PHP_ROUND_HALF_EVEN, '1'],
+            ['1.995', 0, PHP_ROUND_HALF_EVEN, '2'],
+            ['0.6', 0, PHP_ROUND_HALF_EVEN, '1'],
             // 2 precision
-            array('1.58', 2, PHP_ROUND_HALF_EVEN, '1.58'),
-            array('1.589', 2, PHP_ROUND_HALF_EVEN, '1.59'),
-            array('1.599', 2, PHP_ROUND_HALF_EVEN, '1.6'),
-            array('1.3', 2, PHP_ROUND_HALF_EVEN, '1.3'),
-            array('1.495', 2, PHP_ROUND_HALF_EVEN, '1.5'),
-            array('1.4949', 2, PHP_ROUND_HALF_EVEN, '1.49'),
-            array('1.4958', 2, PHP_ROUND_HALF_EVEN, '1.5'),
+            ['1.58', 2, PHP_ROUND_HALF_EVEN, '1.58'],
+            ['1.589', 2, PHP_ROUND_HALF_EVEN, '1.59'],
+            ['1.599', 2, PHP_ROUND_HALF_EVEN, '1.6'],
+            ['1.3', 2, PHP_ROUND_HALF_EVEN, '1.3'],
+            ['1.495', 2, PHP_ROUND_HALF_EVEN, '1.5'],
+            ['1.4949', 2, PHP_ROUND_HALF_EVEN, '1.49'],
+            ['1.4958', 2, PHP_ROUND_HALF_EVEN, '1.5'],
             // negative - 0 precision
-            array('-0', 0, PHP_ROUND_HALF_EVEN, '0'),
-            array('-0.0', 0, PHP_ROUND_HALF_EVEN, '0'),
-            array('-1', 0, PHP_ROUND_HALF_EVEN, '-1'),
-            array('-1.5', 0, PHP_ROUND_HALF_EVEN, '-2'),
-            array('-1.6', 0, PHP_ROUND_HALF_EVEN, '-2'),
-            array('-1.49', 0, PHP_ROUND_HALF_EVEN, '-1'),
-            array('-1.995', 0, PHP_ROUND_HALF_EVEN, '-2'),
-            array('-0.6', 0, PHP_ROUND_HALF_EVEN, '-1'),
+            ['-0', 0, PHP_ROUND_HALF_EVEN, '0'],
+            ['-0.0', 0, PHP_ROUND_HALF_EVEN, '0'],
+            ['-1', 0, PHP_ROUND_HALF_EVEN, '-1'],
+            ['-1.5', 0, PHP_ROUND_HALF_EVEN, '-2'],
+            ['-1.6', 0, PHP_ROUND_HALF_EVEN, '-2'],
+            ['-1.49', 0, PHP_ROUND_HALF_EVEN, '-1'],
+            ['-1.995', 0, PHP_ROUND_HALF_EVEN, '-2'],
+            ['-0.6', 0, PHP_ROUND_HALF_EVEN, '-1'],
             // negative - 2 precision
-            array('-1.58', 2, PHP_ROUND_HALF_EVEN, '-1.58'),
-            array('-1.589', 2, PHP_ROUND_HALF_EVEN, '-1.59'),
-            array('-1.599', 2, PHP_ROUND_HALF_EVEN, '-1.6'),
-            array('-1.3', 2, PHP_ROUND_HALF_EVEN, '-1.3'),
-            array('-1.495', 2, PHP_ROUND_HALF_EVEN, '-1.5'),
-            array('-1.4949', 2, PHP_ROUND_HALF_EVEN, '-1.49'),
-            array('-1.4958', 2, PHP_ROUND_HALF_EVEN, '-1.5'),
+            ['-1.58', 2, PHP_ROUND_HALF_EVEN, '-1.58'],
+            ['-1.589', 2, PHP_ROUND_HALF_EVEN, '-1.59'],
+            ['-1.599', 2, PHP_ROUND_HALF_EVEN, '-1.6'],
+            ['-1.3', 2, PHP_ROUND_HALF_EVEN, '-1.3'],
+            ['-1.495', 2, PHP_ROUND_HALF_EVEN, '-1.5'],
+            ['-1.4949', 2, PHP_ROUND_HALF_EVEN, '-1.49'],
+            ['-1.4958', 2, PHP_ROUND_HALF_EVEN, '-1.5'],
             // PHP_ROUND_HALF_ODD
 
             // 0 precision
-            array('0', 0, PHP_ROUND_HALF_ODD, '0'),
-            array('0.0', 0, PHP_ROUND_HALF_ODD, '0'),
-            array('1', 0, PHP_ROUND_HALF_ODD, '1'),
-            array('1.5', 0, PHP_ROUND_HALF_ODD, '1'),
-            array('1.6', 0, PHP_ROUND_HALF_ODD, '2'),
-            array('1.49', 0, PHP_ROUND_HALF_ODD, '1'),
-            array('1.995', 0, PHP_ROUND_HALF_ODD, '2'),
-            array('0.6', 0, PHP_ROUND_HALF_ODD, '1'),
+            ['0', 0, PHP_ROUND_HALF_ODD, '0'],
+            ['0.0', 0, PHP_ROUND_HALF_ODD, '0'],
+            ['1', 0, PHP_ROUND_HALF_ODD, '1'],
+            ['1.5', 0, PHP_ROUND_HALF_ODD, '1'],
+            ['1.6', 0, PHP_ROUND_HALF_ODD, '2'],
+            ['1.49', 0, PHP_ROUND_HALF_ODD, '1'],
+            ['1.995', 0, PHP_ROUND_HALF_ODD, '2'],
+            ['0.6', 0, PHP_ROUND_HALF_ODD, '1'],
             // 2 precision
-            array('1.58', 2, PHP_ROUND_HALF_ODD, '1.58'),
-            array('1.589', 2, PHP_ROUND_HALF_ODD, '1.59'),
-            array('1.599', 2, PHP_ROUND_HALF_ODD, '1.6'),
-            array('1.3', 2, PHP_ROUND_HALF_ODD, '1.3'),
-            array('1.495', 2, PHP_ROUND_HALF_ODD, '1.49'),
-            array('1.4949', 2, PHP_ROUND_HALF_ODD, '1.49'),
-            array('1.4958', 2, PHP_ROUND_HALF_ODD, '1.5'),
+            ['1.58', 2, PHP_ROUND_HALF_ODD, '1.58'],
+            ['1.589', 2, PHP_ROUND_HALF_ODD, '1.59'],
+            ['1.599', 2, PHP_ROUND_HALF_ODD, '1.6'],
+            ['1.3', 2, PHP_ROUND_HALF_ODD, '1.3'],
+            ['1.495', 2, PHP_ROUND_HALF_ODD, '1.49'],
+            ['1.4949', 2, PHP_ROUND_HALF_ODD, '1.49'],
+            ['1.4958', 2, PHP_ROUND_HALF_ODD, '1.5'],
             // negative - 0 precision
-            array('-0', 0, PHP_ROUND_HALF_ODD, '0'),
-            array('-0.0', 0, PHP_ROUND_HALF_ODD, '0'),
-            array('-1', 0, PHP_ROUND_HALF_ODD, '-1'),
-            array('-1.5', 0, PHP_ROUND_HALF_ODD, '-1'),
-            array('-1.6', 0, PHP_ROUND_HALF_ODD, '-2'),
-            array('-1.49', 0, PHP_ROUND_HALF_ODD, '-1'),
-            array('-1.995', 0, PHP_ROUND_HALF_ODD, '-2'),
-            array('-0.6', 0, PHP_ROUND_HALF_ODD, '-1'),
+            ['-0', 0, PHP_ROUND_HALF_ODD, '0'],
+            ['-0.0', 0, PHP_ROUND_HALF_ODD, '0'],
+            ['-1', 0, PHP_ROUND_HALF_ODD, '-1'],
+            ['-1.5', 0, PHP_ROUND_HALF_ODD, '-1'],
+            ['-1.6', 0, PHP_ROUND_HALF_ODD, '-2'],
+            ['-1.49', 0, PHP_ROUND_HALF_ODD, '-1'],
+            ['-1.995', 0, PHP_ROUND_HALF_ODD, '-2'],
+            ['-0.6', 0, PHP_ROUND_HALF_ODD, '-1'],
             // negative - 2 precision
-            array('-1.58', 2, PHP_ROUND_HALF_ODD, '-1.58'),
-            array('-1.589', 2, PHP_ROUND_HALF_ODD, '-1.59'),
-            array('-1.599', 2, PHP_ROUND_HALF_ODD, '-1.6'),
-            array('-1.3', 2, PHP_ROUND_HALF_ODD, '-1.3'),
-            array('-1.495', 2, PHP_ROUND_HALF_ODD, '-1.49'),
-            array('-1.4949', 2, PHP_ROUND_HALF_ODD, '-1.49'),
-            array('-1.4958', 2, PHP_ROUND_HALF_ODD, '-1.5'),
-        );
+            ['-1.58', 2, PHP_ROUND_HALF_ODD, '-1.58'],
+            ['-1.589', 2, PHP_ROUND_HALF_ODD, '-1.59'],
+            ['-1.599', 2, PHP_ROUND_HALF_ODD, '-1.6'],
+            ['-1.3', 2, PHP_ROUND_HALF_ODD, '-1.3'],
+            ['-1.495', 2, PHP_ROUND_HALF_ODD, '-1.49'],
+            ['-1.4949', 2, PHP_ROUND_HALF_ODD, '-1.49'],
+            ['-1.4958', 2, PHP_ROUND_HALF_ODD, '-1.5'],
+        ];
     }
 
     /**

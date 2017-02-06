@@ -1,13 +1,15 @@
 <?php
+
 namespace Superbalist\Money;
 
 class Utils
 {
-
     /**
      * @param mixed $value
-     * @return string
+     *
      * @throws \InvalidArgumentException
+     *
+     * @return string
      */
     public static function toStringAmount($value)
     {
@@ -50,6 +52,7 @@ class Utils
 
     /**
      * @param string $value
+     *
      * @return bool
      */
     public static function isZero($value)
@@ -59,6 +62,7 @@ class Utils
 
     /**
      * @param mixed $value
+     *
      * @return string
      */
     public static function ceil($value)
@@ -79,6 +83,7 @@ class Utils
 
     /**
      * @param mixed $value
+     *
      * @return string
      */
     public static function floor($value)
@@ -100,6 +105,7 @@ class Utils
     /**
      * @param string $value
      * @param int $precision
+     *
      * @return string
      */
     public static function abs($value, $precision = Money::DEFAULT_SCALE_FACTOR)
@@ -114,8 +120,9 @@ class Utils
     }
 
     /**
-     * @return string
      * @throws \RuntimeException
+     *
+     * @return string
      */
     public static function min()
     {
@@ -137,8 +144,9 @@ class Utils
     }
 
     /**
-     * @return string
      * @throws \RuntimeException
+     *
+     * @return string
      */
     public static function max()
     {
@@ -163,6 +171,7 @@ class Utils
      * @param mixed $value
      * @param int $precision
      * @param int $mode
+     *
      * @return string
      */
     public static function round($value, $precision, $mode = PHP_ROUND_HALF_UP)
@@ -189,6 +198,7 @@ class Utils
     /**
      * @param mixed $gross
      * @param string $rate
+     *
      * @return string
      */
     public static function calculateNetVatAmount($gross, $rate = '0.14')

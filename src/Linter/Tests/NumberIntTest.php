@@ -1,9 +1,9 @@
 <?php
+
 namespace Superbalist\Money\Linter\Tests;
 
 class NumberIntTest extends ContainsTokenTest
 {
-
     /**
      * @return int
      */
