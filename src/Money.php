@@ -284,6 +284,19 @@ class Money
      * @param int $precision
      * @param string $decPoint
      * @param string $thousandsSep
+     * @param int $mode
+     *
+     * @return string
+     */
+    public function roundFormat($precision = 2, $decPoint = '.', $thousandsSep = '', $mode = PHP_ROUND_HALF_EVEN)
+    {
+        return $this->round($precision, $mode)->format($precision, $decPoint, $thousandsSep);
+    }
+
+    /**
+     * @param int $precision
+     * @param string $decPoint
+     * @param string $thousandsSep
      *
      * @return string
      */
