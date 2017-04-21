@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5 - 2017-04-21
+
+* Add `roundFormat()` function which first rounds, then formats the amount, as the regular `format()` function
+truncates any additional data, resulting in a loss of accuracy
+
 ## 1.0.4 - 2016-02-01
 
 * Fix typod class name PHPDocBlockTest

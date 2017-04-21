@@ -681,6 +681,7 @@ class MoneyTests extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider testRoundProvider
+     *
      * @param mixed $value
      * @param mixed $precision
      * @param mixed $mode
