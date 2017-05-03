@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6 - 2017-05-03
+
+* Set a more sane default rounding strategy: `PHP_ROUND_HALF_UP`
+
 ## 1.0.5 - 2017-04-21
 
 * Add `roundFormat()` function which first rounds, then formats the amount, as the regular `format()` function
