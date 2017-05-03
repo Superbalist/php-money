@@ -288,7 +288,7 @@ class Money
      *
      * @return string
      */
-    public function roundFormat($precision = 2, $decPoint = '.', $thousandsSep = '', $mode = PHP_ROUND_HALF_EVEN)
+    public function roundFormat($precision = 2, $decPoint = '.', $thousandsSep = '', $mode = PHP_ROUND_HALF_UP)
     {
         return $this->round($precision, $mode)->format($precision, $decPoint, $thousandsSep);
     }
@@ -387,7 +387,7 @@ class Money
      *
      * @return Money
      */
-    public function round($precision, $mode = PHP_ROUND_HALF_EVEN)
+    public function round($precision, $mode = PHP_ROUND_HALF_UP)
     {
         $amount = Utils::round($this->amount, $precision, $mode);
         return new self($amount, $this->currency);
