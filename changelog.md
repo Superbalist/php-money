@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.6 - 2017-05-03
+## 2.0.0 - 2017-05-03
 
 * Set a more sane default rounding strategy: `PHP_ROUND_HALF_UP`
 
